@@ -6,6 +6,43 @@
         <element id="directory" name="classes">
           <element id="module-output" name="web-store-market-customer" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.12" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.12" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.3" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.3" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.3.4.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.1" />
+          <element id="archive" name="web-store-market-entities-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="web-store-market-entities" />
+          </element>
+          <element id="library" level="project" name="Maven: javax:javaee-web-api:7.0" />
+          <element id="archive" name="web-store-market-api-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="web-store-market-api" />
+          </element>
+          <element id="archive" name="web-store-market-impl-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="web-store-market-impl" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/web-store-market-customer/target/web-store-market/META-INF/MANIFEST.MF" />

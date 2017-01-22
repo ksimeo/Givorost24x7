@@ -1,4 +1,4 @@
-package com.ksimeo.eshop.impl.services;
+package com.ksimeo.eshop.impl.services.mocks;
 
 import com.ksimeo.eshop.api.dao.OrderDAO;
 import com.ksimeo.eshop.api.services.OrderService;
@@ -15,14 +15,14 @@ import java.util.List;
  * @since 1.0
  */
 @Service
-public class OrderServImpl implements OrderService {
-    
+public class OrderServMock implements OrderService {
+
     public static final int rowCount = 5;
 
     @Autowired
     private OrderDAO orderDao;
 
-    public OrderServImpl() {
+    public OrderServMock() {
         //NOP
     }
 

@@ -45,6 +45,12 @@
 			<artifactId>hsqldb</artifactId>
 			<version>${hsqldb.version}</version>
 		</dependency>
+		<!--U t i l i t e s-->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
 		<!--O w n  d e p e n d e n c i e s-->
 		<dependency>
 			<groupId>com.ksimeo.eshop.entities</groupId>

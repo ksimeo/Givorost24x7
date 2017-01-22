@@ -35,7 +35,7 @@ public class OrderDaoMock implements OrderDAO {
 
     @Override
     public Order findOne(int id) {
-        return orders.get(id);
+        return orders.get(id - 1);
     }
 
     @Override

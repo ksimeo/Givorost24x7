@@ -36,6 +36,8 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
         </element>
       </element>
       <element id="directory" name="META-INF">
