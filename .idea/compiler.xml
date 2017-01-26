@@ -59,11 +59,25 @@
         <processorPath useClasspath="true" />
         <module name="web-store-market-entities" />
       </profile>
+      <profile default="false" name="Annotation profile for web-store-market-core" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="web-store-market-core" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="givorost24x7-admin" target="1.8" />
+      <module name="givorost24x7-api" target="1.8" />
+      <module name="givorost24x7-core" target="1.8" />
+      <module name="givorost24x7-customer" target="1.8" />
+      <module name="givorost24x7-impl" target="1.8" />
+      <module name="givorost24x7-repository" target="1.8" />
       <module name="web-store-market" target="1.5" />
       <module name="web-store-market-admin" target="1.8" />
       <module name="web-store-market-api" target="1.8" />
+      <module name="web-store-market-core" target="1.8" />
       <module name="web-store-market-customer" target="1.8" />
       <module name="web-store-market-entities" target="1.8" />
       <module name="web-store-market-impl" target="1.8" />

@@ -4,13 +4,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="web-store-market" />
+          <element id="module-output" name="givorost24x7" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/web-store-market-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="web-store-market/web/Web" />
+      <element id="javaee-facet-resources" facet="givorost24x7/web/Web" />
     </root>
   </artifact>
 </component>

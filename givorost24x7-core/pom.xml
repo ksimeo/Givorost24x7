@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>givorost24x7</artifactId>
+		<groupId>com.ksimeo.givorost</groupId>
+		<version>1.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ksimeo.givorost.core</groupId>
+	<artifactId>givorost24x7-core</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0</version>
+	<name>Givorost24x7_CorePath</name>
+
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<javaee.version>7.0</javaee.version>
+	</properties>
+
+	<dependencies>
+		<!--J a v a E E-->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>${javaee.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>Givorost24x7_Core_JavaEE_WebApp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/web-store-market.iml" filepath="$PROJECT_DIR$/web-store-market.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-admin/web-store-market-admin.iml" filepath="$PROJECT_DIR$/web-store-market-admin/web-store-market-admin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-api/web-store-market-api.iml" filepath="$PROJECT_DIR$/web-store-market-api/web-store-market-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-customer/web-store-market-customer.iml" filepath="$PROJECT_DIR$/web-store-market-customer/web-store-market-customer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-entities/web-store-market-entities.iml" filepath="$PROJECT_DIR$/web-store-market-entities/web-store-market-entities.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-impl/web-store-market-impl.iml" filepath="$PROJECT_DIR$/web-store-market-impl/web-store-market-impl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-store-market-repository/web-store-market-repository.iml" filepath="$PROJECT_DIR$/web-store-market-repository/web-store-market-repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7.iml" filepath="$PROJECT_DIR$/givorost24x7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-admin/givorost24x7-admin.iml" filepath="$PROJECT_DIR$/givorost24x7-admin/givorost24x7-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-api/givorost24x7-api.iml" filepath="$PROJECT_DIR$/givorost24x7-api/givorost24x7-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-core/givorost24x7-core.iml" filepath="$PROJECT_DIR$/givorost24x7-core/givorost24x7-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-customer/givorost24x7-customer.iml" filepath="$PROJECT_DIR$/givorost24x7-customer/givorost24x7-customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-impl/givorost24x7-impl.iml" filepath="$PROJECT_DIR$/givorost24x7-impl/givorost24x7-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-repository/givorost24x7-repository.iml" filepath="$PROJECT_DIR$/givorost24x7-repository/givorost24x7-repository.iml" />
     </modules>
   </component>
 </project>

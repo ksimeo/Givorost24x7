@@ -1,20 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ksimeo.eshop</groupId>
-	<artifactId>web-store-market</artifactId>
+	<groupId>com.ksimeo.givorost</groupId>
+	<artifactId>givorost24x7</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0-SNAPSHOT</version>
-	<name>web-store-market Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<version>1.0</version>
+	<name>Givorost24x7</name>
 
 	<modules>
-		<module>web-store-market-admin</module>
-		<module>web-store-market-api</module>
-		<module>web-store-market-customer</module>
-		<module>web-store-market-entities</module>
-		<module>web-store-market-impl</module>
-		<module>web-store-market-repository</module>
+		<module>givorost24x7-admin</module>
+		<module>givorost24x7-api</module>
+		<module>givorost24x7-customer</module>
+		<module>givorost24x7-core</module>
+		<module>givorost24x7-impl</module>
+		<module>givorost24x7-repository</module>
 	</modules>
 
 </project>

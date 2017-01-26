@@ -1,5 +1,0 @@
-NotEmpty.orderForm.name = Name is required!
-NotEmpty.orderForm.telNumber = Telephone number is required!
-NotEmpty.orderForm.prodName = Product name is required!
-NotEmpty.orderForm.email = E-mail is required!
-NotEmpty.orderForm.amount = Amount is required!
