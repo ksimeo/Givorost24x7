@@ -11,7 +11,7 @@
 	<artifactId>givorost24x7-impl</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Givorost24x7_ImplPath</name>
+	<name>Givorost24x7_Impl</name>
 
 	<properties>
 		<jdk.version>1.8</jdk.version>

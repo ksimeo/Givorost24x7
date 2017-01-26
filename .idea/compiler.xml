@@ -17,71 +17,57 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-customer" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-impl" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-customer" />
+        <module name="givorost24x7-impl" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-api" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-core" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-api" />
+        <module name="givorost24x7-core" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-admin" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-repository" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-admin" />
+        <module name="givorost24x7-repository" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-repository" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-customer" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-repository" />
+        <module name="givorost24x7-customer" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-impl" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-admin" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-impl" />
+        <module name="givorost24x7-admin" />
       </profile>
-      <profile default="false" name="Annotation profile for web-store-market-entities" enabled="true">
+      <profile default="false" name="Annotation profile for givorost24x7-api" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="web-store-market-entities" />
-      </profile>
-      <profile default="false" name="Annotation profile for web-store-market-core" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="web-store-market-core" />
+        <module name="givorost24x7-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="givorost24x7" target="1.5" />
       <module name="givorost24x7-admin" target="1.8" />
       <module name="givorost24x7-api" target="1.8" />
       <module name="givorost24x7-core" target="1.8" />
       <module name="givorost24x7-customer" target="1.8" />
       <module name="givorost24x7-impl" target="1.8" />
       <module name="givorost24x7-repository" target="1.8" />
-      <module name="web-store-market" target="1.5" />
-      <module name="web-store-market-admin" target="1.8" />
-      <module name="web-store-market-api" target="1.8" />
-      <module name="web-store-market-core" target="1.8" />
-      <module name="web-store-market-customer" target="1.8" />
-      <module name="web-store-market-entities" target="1.8" />
-      <module name="web-store-market-impl" target="1.8" />
-      <module name="web-store-market-repository" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

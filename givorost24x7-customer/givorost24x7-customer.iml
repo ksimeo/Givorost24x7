@@ -14,7 +14,9 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/../web-store-market-customer/src/main/webapp/WEB-INF/spring-web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-web-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ksimeo/givorost/customer/config/SpringWebConfig.java</file>
+          <file>file://$MODULE_DIR$/../givorost24x7-impl/src/main/java/com/ksimeo/givorost/impl/config/RepositoryServerConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -23,8 +25,8 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

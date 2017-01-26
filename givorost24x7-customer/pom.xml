@@ -10,7 +10,7 @@
 	<artifactId>givorost24x7-customer</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>Givorost24x7_CustomersViewsPath</name>
+	<name>Givorost24x7_Cust</name>
 	<url>http://givorost-biogumat.in.ua</url>
 
 	<properties>

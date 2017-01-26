@@ -10,5 +10,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RepositoryServerConfig {
 
-    public static final String URL = "http://localhost:7070";
+    public static final String URL = "http://localhost:6060";
 }

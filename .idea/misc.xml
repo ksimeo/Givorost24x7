@@ -4,7 +4,9 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/givorost24x7-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/givorost24x7-customer" />
+    <file type="web" url="file://$PROJECT_DIR$/givorost24x7-repository" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

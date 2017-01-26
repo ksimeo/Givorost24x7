@@ -12,9 +12,9 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({ "com.ksimeo.eshop.customer.web.controllers", "com.ksimeo.eshop.api.services",
-        "com.ksimeo.eshop.impl.services", "com.ksimeo.eshop.api.services", "com.ksimeo.eshop.customer.validators",
-        "com.ksimeo.eshop.api.dao", "com.ksimeo.eshop.impl.dao" })
+@ComponentScan({ "com.ksimeo.givorost.customer.web.controllers", "com.ksimeo.givorost.api.services",
+        "com.ksimeo.givorost.impl.services", "com.ksimeo.givorost.api.services", "com.ksimeo.givorost.customer.validators",
+        "com.ksimeo.givorost.api.dao", "com.ksimeo.givorost.impl.dao" })
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
     @Override
