@@ -11,7 +11,7 @@
 	<artifactId>givorost24x7-repository</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>Givorost24x7_RepositoryPath</name>
+	<name>Givorost24x7_Repo</name>
 	<!--<url>http://maven.apache.org</url>-->
 
 	<properties>
@@ -22,6 +22,7 @@
 		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
 		<logback.version>1.1.3</logback.version>
 		<servletapi.version>3.1.0</servletapi.version>
+		<jackson.version>2.8.6</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -57,6 +58,16 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!--J a v a E E-->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -80,6 +91,17 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
+		<!--M a p p i n g-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.fasterxml.jackson.core</groupId>-->
+			<!--<artifactId>jackson-core</artifactId>-->
+			<!--<version>${jackson.version}</version>-->
+		<!--</dependency>-->
 		<!--T e s t i n g-->
 		<dependency>
 			<groupId>junit</groupId>

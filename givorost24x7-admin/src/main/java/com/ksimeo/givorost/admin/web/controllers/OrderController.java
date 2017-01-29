@@ -1,6 +1,7 @@
 package com.ksimeo.givorost.admin.web.controllers;
 
 import com.ksimeo.givorost.api.services.OrderService;
+import com.ksimeo.givorost.core.parcels.OrderPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,18 @@ public class OrderController {
 
     @RequestMapping( value = "/showorderspage/{page:.+}", method = RequestMethod.GET)
     public String showOrdersPage(@PathVariable int page, Model model) {
-        logger.debug("showOrdersPage() : {}", page);
-        model.addAttribute("orders", ordServ.getPage(page).getOrders());
-        return "orders/main";
+        try {
+            logger.debug("showOrdersPage() : {}", page);
+            OrderPage ordPage = ordServ.getPage(page);
+            model.addAttribute("orders", ordPage.getOrders());
+            model.addAttribute("pagin", ordPage.getPagination());
+            model.addAttribute("currpage", page);
+            return "orders/main";
+        } catch (Exception e) {
+            logger.error("showOrderPage()");
+            e.printStackTrace();
+            return null;
+        }
     }
+
 }

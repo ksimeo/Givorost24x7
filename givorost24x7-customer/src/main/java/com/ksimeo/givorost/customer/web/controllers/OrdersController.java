@@ -37,7 +37,14 @@ public class OrdersController {
     @RequestMapping( value = {"/", "/index"}, method = RequestMethod.GET )
     public String index() {
         logger.debug("index()");
-        return "redirect:/orders/add";
+        return "main";
+//                "redirect:/orders/add";
+    }
+
+    @RequestMapping(value = "/agrocalc", method = RequestMethod.GET)
+    public String agroCalc() {
+        logger.debug("agroCalc()");
+        return "agrocalc";
     }
 
     @RequestMapping( value = "/orders/add", method = RequestMethod.GET )

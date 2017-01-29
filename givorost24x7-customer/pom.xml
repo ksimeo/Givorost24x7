@@ -84,6 +84,12 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.3.4.Final</version>
 		</dependency>
+		<!--M a p p i n g-->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
 		<!--T e s t i n g-->
 		<dependency>
 			<groupId>junit</groupId>

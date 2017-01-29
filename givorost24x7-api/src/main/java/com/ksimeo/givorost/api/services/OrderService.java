@@ -12,10 +12,10 @@ import java.util.List;
  */
 public interface OrderService {
 
-    OrderDTO addOne(OrderDTO one);
-    OrderDTO getOne(int id);
-    OrderPage getPage(int page);
-    List<OrderDTO> getAll();
-    void dropOne(int id);
-    void dropAll();
+    OrderDTO addOne(OrderDTO one) throws Exception;
+    OrderDTO getOne(int id) throws Exception;
+    OrderPage getPage(int page) throws Exception;
+    List<OrderDTO> getAll() throws Exception;
+    void dropOne(int id) throws Exception;
+    void dropAll() throws Exception;
 }

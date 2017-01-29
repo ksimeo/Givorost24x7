@@ -21,10 +21,10 @@ public class OrderDTO implements Serializable {
 
     public OrderDTO() {
     }
-
-    public boolean isNew() {
-        return this.id == null;
-    }
+//
+//    public boolean isNew() {
+//        return this.id == null;
+//    }
 
     public Integer getId() {
         return id;
@@ -77,7 +77,8 @@ public class OrderDTO implements Serializable {
     @Override
     public String toString() {
         return "OrderDTO{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", tel='" + tel + '\'' +
                 ", email='" + email + '\'' +
                 ", prod='" + prod + '\'' +

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 1.0
  */
 @Configuration
-public class RepositoryServerConfig {
+public class RepoServerConfig {
 
-    public static final String URL = "http://localhost:6060";
+    public static final String URL = "http://localhost:6060/";
 }

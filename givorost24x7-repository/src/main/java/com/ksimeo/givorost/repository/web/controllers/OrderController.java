@@ -1,14 +1,17 @@
 package com.ksimeo.givorost.repository.web.controllers;
 
-import com.ksimeo.givorost.api.services.OrderService;
-import com.ksimeo.givorost.core.models.Order;
+import com.ksimeo.givorost.api.dao.OrderDAO;
+import com.ksimeo.givorost.core.dto.OrderDTO;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Ksimeo. Created on 22.01.2017 at 19:26 for "web-store-market" project.
@@ -21,12 +24,56 @@ public class OrderController {
     public final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @Autowired
-    private OrderService orderService;
+    private OrderDAO ordDao;
 
-    @RequestMapping( value = "/addorder", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE +
+    private ObjectMapper mapper = new ObjectMapper();
+
+    @RequestMapping( value = "/addorder", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public OrderDTO addOrder(@RequestBody OrderDTO order) throws IOException {
+//        System.err.println("Полученные данные: " + data);
+        try {
+//            OrderDTO order = mapper.readValue(data, OrderDTO.class);
+            logger.debug("addOrder() : {}", order);
+            System.err.println("Полученный объект: " + order);
+            OrderDTO toSend = ordDao.saveOrUpdate(order);
+            System.err.println("Отправляемый объект: " + toSend);
+            return toSend;
+        } catch (Exception e) {
+            logger.debug("addOrder(): mapping error");
+         e.printStackTrace();
+            return null;
+        }
+    }
+
+    @RequestMapping( value = "/getorder/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
             ";charset=UTF-8")
-    public void addOrder(Order order) {
-        logger.debug("addOrder() : {}", order);
-        orderService.addOne(order);
+    @ResponseBody
+    public OrderDTO getOrder(@PathVariable int id) {
+        logger.debug("getOrder() id: {}", id);
+        return ordDao.findOne(id);
+    }
+
+    @RequestMapping( value = "/getordrscount", method = RequestMethod.GET)
+    public int getOrdersCount() {
+        logger.debug("getOrdersCount()");
+        return ordDao.getCount();
+    }
+
+    @RequestMapping( value = "/getorders/{from}/{to}", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
+    @ResponseBody
+    public List<OrderDTO> getOrders(@PathVariable int from, @PathVariable int to) {
+        logger.debug("getOrders() from: {}, to: {}", from, to);
+        return ordDao.findSeveral(from, to);
+    }
+
+    @RequestMapping( value = "/getallordrs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
+            ";charset=UTF-8")
+    @ResponseBody
+    public List<OrderDTO> getAllOrders() {
+        logger.debug("getAllOrders()");
+        return ordDao.findAll();
     }
 }

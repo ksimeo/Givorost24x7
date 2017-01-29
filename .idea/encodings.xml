@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/givorost24x7-repository/src/main/java/com/ksimeo/givorost/repository/config/SpringWebConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/givorost24x7-repository/src/main/java/com/ksimeo/givorost/repository/web/controllers/OrderController.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -13,12 +13,12 @@
 <div class="container">
 
     <%--<c:choose>--%>
-        <%--<c:when test="${orderForm['new']}">--%>
-            <%--<h1>Заказать товар</h1>--%>
-        <%--</c:when>--%>
-        <%--<c:otherwise>--%>
-            <%--<h1>Изменить заказ</h1>--%>
-        <%--</c:otherwise>--%>
+    <%--<c:when test="${orderForm['new']}">--%>
+    <%--<h1>Заказать товар</h1>--%>
+    <%--</c:when>--%>
+    <%--<c:otherwise>--%>
+    <%--<h1>Изменить заказ</h1>--%>
+    <%--</c:otherwise>--%>
     <%--</c:choose>--%>
     <br />
 
@@ -67,7 +67,7 @@
                 <label class="col-sm-2 control-label">Продукт:</label>
                 <div class="col-sm-10">
                     <form:input path="prod" class="form-control"
-                                   id="prod" placeholder="Название продукта" />
+                                id="prod" placeholder="Название продукта" />
                     <form:errors path="prod" class="control-label" />
                 </div>
             </div>
@@ -78,7 +78,7 @@
                 <label class="col-sm-2 control-label">Количество:</label>
                 <div class="col-sm-10">
                     <form:input path="amount" type="number" class="form-control"
-                                   id="amount" placeholder="Необходимое количество продукта" />
+                                id="amount" placeholder="Необходимое количество продукта" />
                     <form:errors path="amount" class="control-label" />
                 </div>
             </div>
@@ -86,16 +86,16 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <%--<c:choose>--%>
+                    <%--<c:choose>--%>
                     <%--<c:when test="${orderForm['new']}">--%>
-                        <button type="submit" class="btn-lg btn-primary pull-right">Заказать
-                        </button>
+                <button type="submit" class="btn-lg btn-primary pull-right">Заказать
+                </button>
                     <%--</c:when>--%>
                     <%--<c:otherwise>--%>
-                        <%--<button type="submit" class="btn-lg btn-primary pull-right">Изменить--%>
-                        <%--</button>--%>
+                    <%--<button type="submit" class="btn-lg btn-primary pull-right">Изменить--%>
+                    <%--</button>--%>
                     <%--</c:otherwise>--%>
-                <%--</c:choose>--%>
+                    <%--</c:choose>--%>
             </div>
         </div>
     </form:form>

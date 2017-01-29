@@ -47,6 +47,12 @@
             </tr>
         </c:forEach>
     </table>
-
+    <ul class="pagination pull-center">
+<c:forEach var="pagenumb" items="${pagin}">
+   <li>${pagenumb == page ? '<li class="active">' : ''} <a href="/showorderspage/${pagenumb}">${pagenumb}</a>
+   ${pagenumb == page ? '<li class="active">' : ''}</li>
+</c:forEach>
+    </ul>
 </div>
+</body>
 </html>

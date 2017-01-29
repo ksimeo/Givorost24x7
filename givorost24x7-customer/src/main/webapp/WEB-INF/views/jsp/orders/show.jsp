@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<button type="button" onclick="document.location='/index'" class="btn-lg btn-primary pull-right">На главную
+<button type="button" onclick="document.location='/index'" class="btn-lg btn-primary pull-right">Вернуться на главную
 </button>
 
 <jsp:include page="../fragments/footer.jsp" />

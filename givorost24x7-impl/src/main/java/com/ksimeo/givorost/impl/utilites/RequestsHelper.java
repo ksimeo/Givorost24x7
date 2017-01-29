@@ -14,7 +14,7 @@ import java.net.URL;
 public class RequestsHelper {
 
     // HTTP GET request
-    private String sendGet(String url) throws Exception {
+    public static String sendGet(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // optional default is GET
@@ -29,15 +29,16 @@ public class RequestsHelper {
             response.append(inputLine);
         }
         in.close();
-        return response.toString();
+        return new String(response.toString().getBytes("cp1251"), "utf-8");
     }
 
     // HTTP POST request
-    private String sendPost(String url, String data) throws Exception {
+    public static String sendPost(String url, String data) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        data = new String(data.getBytes("utf-8"), "ISO-8859-1");
         con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json");
+        con.setRequestProperty("Content-Type", "application/json;");
         con.setDoOutput(true);
         DataOutputStream wr = new DataOutputStream(con.getOutputStream());
         wr.writeBytes(data);
@@ -53,6 +54,6 @@ public class RequestsHelper {
             response.append(inputLine);
         }
         in.close();
-        return response.toString();
+        return new String(response.toString().getBytes("cp1251"), "utf-8");
     }
 }
