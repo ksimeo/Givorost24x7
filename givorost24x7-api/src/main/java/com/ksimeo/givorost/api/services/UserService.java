@@ -1,6 +1,6 @@
 package com.ksimeo.givorost.api.services;
 
-import com.ksimeo.givorost.core.models.User;
+import com.ksimeo.givorost.core.dto.UserDTO;
 
 import java.util.List;
 
@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface UserService {
 
-    User getOneByLoginPassword(String login, String password);
-    List<User> getAll();
+    UserDTO getOneByLoginPassword(String login, String password);
+    List<UserDTO> getAll();
 }

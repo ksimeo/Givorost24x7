@@ -9,22 +9,25 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "commodities")
-public class Commodity {
+public class Product {
     @Id
     @GeneratedValue
     private int id;
     @Column
     private String name;
     @Column
-    private int count;
+    private float coeff;
+    @Column
+    private float price;
 
-    public Commodity() {
+    public Product() {
         //NOP
     }
 
-    public Commodity(String name, int count) {
+    public Product(String name, float coeff, float price) {
         this.name = name;
-        this.count = count;
+        this.coeff = coeff;
+        this.price = price;
     }
 
     public String getName() {
@@ -35,11 +38,19 @@ public class Commodity {
         this.name = name;
     }
 
-    public int getCount() {
-        return count;
+    public float getCoeff() {
+        return coeff;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setCoeff(float coeff) {
+        this.coeff = coeff;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }

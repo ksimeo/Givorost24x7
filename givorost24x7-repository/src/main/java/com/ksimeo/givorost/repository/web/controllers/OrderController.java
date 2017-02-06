@@ -28,13 +28,11 @@ public class OrderController {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    @RequestMapping( value = "/addorder", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping( value = "orders/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public OrderDTO addOrder(@RequestBody OrderDTO order) throws IOException {
-//        System.err.println("Полученные данные: " + data);
         try {
-//            OrderDTO order = mapper.readValue(data, OrderDTO.class);
             logger.debug("addOrder() : {}", order);
             System.err.println("Полученный объект: " + order);
             OrderDTO toSend = ordDao.saveOrUpdate(order);
@@ -47,15 +45,16 @@ public class OrderController {
         }
     }
 
-    @RequestMapping( value = "/getorder/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
-            ";charset=UTF-8")
+    @RequestMapping( value = "orders/getone/{id}", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     @ResponseBody
     public OrderDTO getOrder(@PathVariable int id) {
         logger.debug("getOrder() id: {}", id);
         return ordDao.findOne(id);
     }
 
-    @RequestMapping( value = "/getordrscount", method = RequestMethod.GET)
+    @RequestMapping( value = "orders/getcount", method = RequestMethod.GET)
+    @ResponseBody
     public int getOrdersCount() {
         logger.debug("getOrdersCount()");
         return ordDao.getCount();
@@ -69,7 +68,13 @@ public class OrderController {
         return ordDao.findSeveral(from, to);
     }
 
-    @RequestMapping( value = "/getallordrs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
+    @RequestMapping( value = "orders/delone/{id}", method = RequestMethod.GET)
+    public void delOrder(@PathVariable int id) {
+        logger.debug("delOrder(): {}", id);
+        ordDao.dropOne(id);
+    }
+
+    @RequestMapping( value = "orders/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
             ";charset=UTF-8")
     @ResponseBody
     public List<OrderDTO> getAllOrders() {

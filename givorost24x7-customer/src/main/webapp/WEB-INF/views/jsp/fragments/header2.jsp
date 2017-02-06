@@ -23,7 +23,7 @@
     <link href="../../../../resources/core/css/css(1)" rel="stylesheet" type="text/css">
     <!--//web-fonts-->
     <!-- start-smooth-scrolling -->
-    <script type="text/javascript" src="../../../../resources/core/js/customer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../../../resources/core/js/move-top.js.download"></script>
     <script type="text/javascript" src="../../../../resources/core/js/easing.js.download"></script>
     <script type="text/javascript">
@@ -248,7 +248,7 @@
             transition: all 0.1s !important;
         }
         h3.error_message {
-        align-content: center;
+            align-content: center;
         }
     </style>
 </head>
@@ -258,8 +258,8 @@
     <div class="effect5">
         <div class="container">
             <div class="logo">
-                <h1><a href=""><img src="../../../resources/images/png/logo.png"
-                                                                      alt=""></a></h1>
+                <h1><a href=""><img src="../../../../resources/images/png/logo.png"
+                                    alt=""></a></h1>
             </div>
             <div class="top-nav">
                 <nav class="navbar navbar-default">
@@ -271,22 +271,22 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-center">
                             <li class="parent">
-                                <a href="" class="active">Головна</a>
+                                <a href="../" class="active">Головна</a>
                             </li>
                             <li class="parent">
-                                <a href="about" class="active">Про нас</a>
+                                <a href="../about" class="active">Про нас</a>
                             </li>
                             <li class="parent">
                                 <a href="../products">Продукція</a>
                             </li>
                             <li class="parent">
-                                <a href="articles" class="active">Статті</a>
+                                <a href="../articles" class="active">Статті</a>
                             </li>
                             <li class="parent">
-                                <a href="sales">Акції</a>
+                                <a href="../sales">Акції</a>
                             </li>
                             <li class="parent">
-                                <a href="contacts">Контакти</a>
+                                <a href="../contacts">Контакти</a>
                             </li>
                         </ul>
                     </div>

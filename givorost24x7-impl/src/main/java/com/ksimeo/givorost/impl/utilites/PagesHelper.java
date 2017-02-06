@@ -40,7 +40,7 @@ public class PagesHelper {
 
     public static List<String> getPagination(int currPageNumb, int pagesCount, int maxPagesOnPage) {
 
-        final int approachToBondsCoeff = 2;
+        final int approachToBondsCoeff = 4;
         int minPageNumb = currPageNumb - (pagesCount - approachToBondsCoeff);
         int maxPageNumb = currPageNumb + approachToBondsCoeff;
 
@@ -98,9 +98,9 @@ public class PagesHelper {
         }
     }
 
-//    public static void main(String[] args) {
-//
-//        List<String> arrays = PagesHelper.getPagination(8, 8, 5);
-//        System.out.println(arrays);
-//    }
+    public static void main(String[] args) {
+
+        List<String> arrays = PagesHelper.getPagination(7, 14, 10);
+        System.out.println(arrays);
+    }
 }

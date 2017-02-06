@@ -1,7 +1,7 @@
 package com.ksimeo.givorost.impl.dao;
 
 import com.ksimeo.givorost.api.dao.UserDAO;
-import com.ksimeo.givorost.core.models.User;
+import com.ksimeo.givorost.core.dto.UserDTO;
 
 import java.util.List;
 
@@ -14,17 +14,32 @@ import java.util.List;
 public class UserDaoImpl implements UserDAO {
 
     @Override
-    public User findOne(int id) {
+    public UserDTO saveOrUpdate(UserDTO userDTO) {
         return null;
     }
 
     @Override
-    public User findOne(String login, String password) {
+    public UserDTO findOne(int id) {
         return null;
     }
 
     @Override
-    public List<User> findAll() {
+    public UserDTO findOne(String login, String password) {
         return null;
+    }
+
+    @Override
+    public List<UserDTO> findAll() {
+        return null;
+    }
+
+    @Override
+    public void dropOne(int id) {
+
+    }
+
+    @Override
+    public void dropAll() {
+
     }
 }

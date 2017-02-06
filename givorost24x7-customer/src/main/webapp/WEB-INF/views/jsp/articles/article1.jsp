@@ -1,6 +1,33 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 
+<jsp:include page="../fragments/header2.jsp" />
+
+<!-- single -->
+<div class="single">
+    <div class="container">
+        <h2 class="title">Статья 1</h2>
+        <div class="single-info">
+            <div class="col-md-12 single-left">
+                <ul>
+                    <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 2016-11-03 08:27:00</li>
+                </ul>
+                <img class="img-responsive" src="../../../../resources/images/jpg/salat mini.jpg" alt="">
+                <p>
+                    <i>Відновлення мікрофлори ґрунту</i>
+                    <span></span></p><div dir="ltr">Один з прикладів використання, який &nbsp;безпосередньо демонструє
+                результат&nbsp;зародження агрокорисної мікрофлори ґрунту.&nbsp;</div>
+                <div dir="ltr">Проводились наступні заходи:<br>- в сонячний день теплої пору року теплиця була зачинена
+                    протягом дня.<br>- відчинена і провітрена;<br>- проведено дощування розчином суміші Біогуматі
+                    ЖИВОРОСТ для теплиць, з розрахунку 30л на га.</div>
+                <div>Пізніше проводилась висадка розсади.</div>
+                <div dir="ltr">Після чого в теплицях де рослини в попередні роки страждали від патогенної мікрофлори
+                    ґрунту, спостерігається стабільний рівномірний розвиток рослин.</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //single -->
 <!--contact-->
 <div class="contact" id="contact">
     <div class="map">
@@ -51,26 +78,5 @@
     </div>
 </div>
 <!--//contact-->
-<!--footer-->
-<div class="footer">
-    <div class="footer-info">
-        <div class="container">
-            <p>© 2017 ЖИВОРОСТ. Всі права захищені</p>
-        </div>
-    </div>
-</div>
-<!--//footer-->
-<!--smooth-scrolling-of-move-up-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
-</script>
-<a href="[(site_url)]#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<!--//smooth-scrolling-of-move-up-->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../../../../resources/core/js/bootstrap.js.download"></script>
-</body>
-</html>
+
+<jsp:include page="../fragments/footer.jsp" />

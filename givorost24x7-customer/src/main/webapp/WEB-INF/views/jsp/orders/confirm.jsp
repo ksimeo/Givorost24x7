@@ -21,33 +21,30 @@
             <strong>${msg}</strong>
         </div>
     </c:if>
-
-    <h1>Вы заказали:</h1>
-
+    <h1>Ваше замовлення:</h1>
     <br />
-
     <div class="row">
-        <label class="col-sm-2">Имя продукта</label>
+        <label class="col-sm-2">Назва продукту</label>
         <div class="col-sm-10">${order.prod}</div>
     </div>
 
     <div class="row">
-        <label class="col-sm-2">Количество</label>
+        <label class="col-sm-2">Кiлькiсть</label>
         <div class="col-sm-10">${order.amount}</div>
     </div>
 
     <div class="row">
-        <label class="col-sm-2">Имя</label>
+        <label class="col-sm-2">Ваше iм`я</label>
         <div class="col-sm-10">${order.name}</div>
     </div>
 
     <div class="row">
-        <label class="col-sm-2">Телефон</label>
+        <label class="col-sm-2">Ваш контактний телефон</label>
         <div class="col-sm-10">${order.tel}</div>
     </div>
 
     <div class="row">
-        <label class="col-sm-2">Эл. почта</label>
+        <label class="col-sm-2">Ел. скринька</label>
         <div class="col-sm-10">${order.email}</div>
     </div>
 </div>

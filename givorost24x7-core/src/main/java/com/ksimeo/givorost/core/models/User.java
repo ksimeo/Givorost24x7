@@ -23,19 +23,27 @@ public class User implements Serializable {
     @Column
     private String surname;
     @Column
-    private Role role;
+    private boolean isAdmin;
 
 
     public User() {
         //NOP
          }
 
-    public User(String login, String password, String name, String surname, Role role) {
+    public User(String login, String password, String name, String surname, boolean isAdmin) {
         this.login = login;
         this.password = password;
         this.name = name;
         this.surname = surname;
-        this.role = role;
+        this.isAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
     public int getId() {
@@ -78,14 +86,6 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,11 +94,11 @@ public class User implements Serializable {
         User user = (User) o;
 
         if (id != user.id) return false;
+        if (isAdmin != user.isAdmin) return false;
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
-        return role == user.role;
+        return !(surname != null ? !surname.equals(user.surname) : user.surname != null);
 
     }
 
@@ -109,7 +109,7 @@ public class User implements Serializable {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (isAdmin ? 1 : 0);
         return result;
     }
 
@@ -121,7 +121,7 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", role=" + role +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }

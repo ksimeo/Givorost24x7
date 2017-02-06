@@ -1,8 +1,7 @@
 package com.ksimeo.givorost.impl.dao.mocks;
 
 import com.ksimeo.givorost.api.dao.UserDAO;
-import com.ksimeo.givorost.core.models.Role;
-import com.ksimeo.givorost.core.models.User;
+import com.ksimeo.givorost.core.dto.UserDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,31 +15,48 @@ import java.util.List;
 @Repository
 public class UserDaoMock implements UserDAO {
 
-    private List<User> users;
+    private List<UserDTO> users;
 
 
     public UserDaoMock() {
-        users = new ArrayList<User>(4);
-        users.add(new User("vasya", "123max", "Вася", "Пупкин", Role.USER));
-        users.add(new User("kolya", "12345", "Коля", "Ласточкин", Role.ADMIN));
-        users.add(new User("senya", "sdfsdgf", "Сеня", "Петров", Role.USER));
-        users.add(new User("petya", "sdsgg12", "Петя", "Николаев", Role.ADMIN));
+        users = new ArrayList<>(4);
+        users.add(new UserDTO("vasya", "123max", "Вася", "Пупкин", false));
+        users.add(new UserDTO("kolya", "12345", "Коля", "Ласточкин", true));
+        users.add(new UserDTO("senya", "sdfsdgf", "Сеня", "Петров", false));
+        users.add(new UserDTO("petya", "sdsgg12", "Петя", "Николаев", true));
     }
 
     @Override
-    public User findOne(int id) {
+    public UserDTO findOne(int id) {
         return null;
     }
 
     @Override
-    public User findOne(String login, String password) {
+    public UserDTO findOne(String login, String password) {
         if (login.equalsIgnoreCase("vasya") && password.equals("123max"))
-            return new User("vasya", "123max", "Вася", "Пупкин", Role.USER);
+            return new UserDTO("vasya", "123max", "Вася", "Пупкин", false);
         else return null;
     }
 
 
-    public List<User> findAll() {
+    public List<UserDTO> findAll() {
         return users;
+    }
+
+    @Override
+    public UserDTO saveOrUpdate(UserDTO userDTO) {
+        users.add(userDTO);
+        userDTO.setId(users.indexOf(userDTO) + 1);
+        return userDTO;
+    }
+
+    @Override
+    public void dropOne(int id) {
+        users.remove(id - 1);
+    }
+
+    @Override
+    public void dropAll() {
+        users.clear();
     }
 }

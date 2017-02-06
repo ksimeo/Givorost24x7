@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<jsp:include page="fragments/header.jsp" />
+<jsp:include page="../fragments/header.jsp" />
 <br/>
 <br/>
 <h2 style="text-align: center">Здесь будет главная страница нашего ресурса</h2>
@@ -17,6 +17,6 @@
     </div>
 </div>
 
-<jsp:include page="fragments/footer.jsp" />
+<jsp:include page="../fragments/footer.jsp" />
 </body>
 </html>

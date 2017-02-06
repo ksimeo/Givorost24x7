@@ -1,6 +1,6 @@
 package com.ksimeo.givorost.api.dao;
 
-import com.ksimeo.givorost.core.models.User;
+import com.ksimeo.givorost.core.dto.UserDTO;
 
 import java.util.List;
 
@@ -11,7 +11,10 @@ import java.util.List;
  */
 public interface UserDAO {
 
-    User findOne(int id);
-    User findOne(String login, String password);
-    List<User> findAll();
+    UserDTO saveOrUpdate(UserDTO userDTO);
+    UserDTO findOne(int id);
+    UserDTO findOne(String login, String password);
+    List<UserDTO> findAll();
+    void dropOne(int id);
+    void dropAll();
 }

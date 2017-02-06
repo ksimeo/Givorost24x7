@@ -1,6 +1,32 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 
+<!DOCTYPE html>
+<html lang="uk-UA">
+
+<jsp:include page="../fragments/header2.jsp" />
+
+<!-- single -->
+<div class="single">
+    <div class="container">
+        <h2 class="title">Статья 2</h2>
+        <div class="single-info">
+            <div class="col-md-12 single-left">
+                <ul>
+                    <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 2016-11-03 08:27:00</li>
+                </ul>
+                <img class="img-responsive" src="../../../../resources/images/jpg/g8.jpg" alt="">
+                <p>
+                    <i>Краткое описание статьи</i>
+                </p>
+                <p>
+                    <em>Чекайте на нову статю</em>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //single -->
 <!--contact-->
 <div class="contact" id="contact">
     <div class="map">
@@ -51,26 +77,5 @@
     </div>
 </div>
 <!--//contact-->
-<!--footer-->
-<div class="footer">
-    <div class="footer-info">
-        <div class="container">
-            <p>© 2017 ЖИВОРОСТ. Всі права захищені</p>
-        </div>
-    </div>
-</div>
-<!--//footer-->
-<!--smooth-scrolling-of-move-up-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
-</script>
-<a href="[(site_url)]#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<!--//smooth-scrolling-of-move-up-->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../../../../resources/core/js/bootstrap.js.download"></script>
-</body>
-</html>
+
+<jsp:include page="../fragments/footer.jsp" />

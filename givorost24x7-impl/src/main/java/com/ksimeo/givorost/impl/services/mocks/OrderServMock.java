@@ -4,6 +4,7 @@ import com.ksimeo.givorost.api.dao.OrderDAO;
 import com.ksimeo.givorost.api.services.OrderService;
 import com.ksimeo.givorost.core.dto.OrderDTO;
 import com.ksimeo.givorost.core.parcels.OrderPage;
+import com.ksimeo.givorost.impl.utilites.PagesHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class OrderServMock implements OrderService {
 
-    public static final int rowCount = 5;
+    public static final int rowMaxCountOnPage = 5;
 
     @Autowired
     private OrderDAO ordDao;
@@ -36,21 +37,24 @@ public class OrderServMock implements OrderService {
         int to;
         boolean isLastPage = false;
         int numb = ordDao.getCount();
-        int maxFullPage = numb / rowCount;
+        int maxFullPage = numb / rowMaxCountOnPage;
         if (pageNumb > maxFullPage) {
             pageNumb = maxFullPage;
             isLastPage = true;
         }
         if (pageNumb > 0) {
-            to = numb - ((pageNumb - 1) * rowCount);
-            from = to - (rowCount - 1);
+            to = numb - ((pageNumb - 1) * rowMaxCountOnPage);
+            from = to - (rowMaxCountOnPage - 1);
         } else {
             pageNumb = 1;
-            to = numb - ((pageNumb - 1) * rowCount);
-            from = to - (rowCount - 1);
+            to = numb - ((pageNumb - 1) * rowMaxCountOnPage);
+            from = to - (rowMaxCountOnPage - 1);
         }
         List<OrderDTO> orders = ordDao.findSeveral(from, to);
-        return new OrderPage(orders, maxFullPage, isLastPage);
+//        int rowCount = ordDao.getCount();
+        int pageCount = PagesHelper.getPageCount(14, rowMaxCountOnPage);
+        List<String> pagin = PagesHelper.getPagination(pageNumb, pageCount, rowMaxCountOnPage);
+        return new OrderPage(orders, pageCount, isLastPage, pagin);
     }
 
     @Override

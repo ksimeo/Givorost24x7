@@ -34,20 +34,14 @@ public class OrdersController {
         binder.setValidator(orderFormValidator);
     }
 
-    @RequestMapping( value = {"/", "/index"}, method = RequestMethod.GET )
-    public String index() {
-        logger.debug("index()");
-        return "main";
-//                "redirect:/orders/add";
-    }
 
-    @RequestMapping(value = "/agrocalc", method = RequestMethod.GET)
-    public String agroCalc() {
-        logger.debug("agroCalc()");
-        return "agrocalc";
-    }
+//    @RequestMapping(value = "calculator", method = RequestMethod.GET)
+//    public String showCalculator() {
+//        logger.debug("showCalculator()");
+//        return "calculator";
+//    }
 
-    @RequestMapping( value = "/orders/add", method = RequestMethod.GET )
+    @RequestMapping( value = "order/add", method = RequestMethod.GET )
     public String showOrderForm(Model model) {
         logger.debug("showOrderForm()");
         OrderDTO order = new OrderDTO();
@@ -89,7 +83,7 @@ public class OrdersController {
                 model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
             }
             model.addAttribute("order", order);
-            return "orders/show";
+            return "orders/confirm";
         } catch (Exception e) {
             model.addAttribute("css", "danger");
             model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
