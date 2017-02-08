@@ -41,10 +41,14 @@ public class OrdersController {
 //        return "calculator";
 //    }
 
-    @RequestMapping( value = "order/add", method = RequestMethod.GET )
-    public String showOrderForm(Model model) {
+    @RequestMapping( value = "/order/{numb}/{type}", method = RequestMethod.GET )
+    public String showOrderForm(@PathVariable("numb") int numb, @PathVariable("type") int type, Model model) {
         logger.debug("showOrderForm()");
         OrderDTO order = new OrderDTO();
+        if (numb != 0 && type != 0) {
+            order.setAmount(numb);
+//            order.
+        }
         model.addAttribute("orderForm", order);
         return "orders/orderform";
     }

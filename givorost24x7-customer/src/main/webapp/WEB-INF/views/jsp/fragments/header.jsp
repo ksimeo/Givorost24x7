@@ -258,7 +258,7 @@
     <div class="effect5">
         <div class="container">
             <div class="logo">
-                <h1><a href=""><img src="../../../resources/images/png/logo.png"
+                <h1><a href=""><img src="../../../../resources/images/png/logo.png"
                                                                       alt=""></a></h1>
             </div>
             <div class="top-nav">

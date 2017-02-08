@@ -6,186 +6,236 @@
 
 function irrTypeChange(){
 
-    var irrigationType = parseInt(document.getElementById('irrigation').value);
+    var irrigationType = document.getElementById('irrigation').options[document.getElementById('irrigation')
+        .selectedIndex].id;
 
-    if (irrigationType == 0) {
+    if (irrigationType == "i0") {
         document.getElementById('result').innerHTML = " ";
-    } else if (irrigationType == 1) {
-        document.getElementById('01').setAttribute('hidden', 'hidden');
-        document.getElementById('product').innerHTML = "Вкажіть тип зрошення &nbsp; " +
+        changeAmount();
+    } else if (irrigationType == "i1") {
+        document.getElementById('i0').setAttribute('hidden', 'hidden');
+        document.getElementById('product').innerHTML = "<div class=\"container\"><h4>Вкажіть культуру:</h4> &nbsp; " +
             "<table>" +
                     "<tr>" +
                         "<td>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r1\" onchange=\"selCultType()\">" +
-                        "Зернові культури</input>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"1.23\" onchange=\"selCultType()\">" +
+                        "Cereals</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r2\" onchange=\"selCultType()\">" +
-                        "Кукурудза</input>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"2.84\" onchange=\"selCultType()\">" +
+                        "Cucumerario</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r3\" onchange=\"selCultType()\">" +
-                        "Соняшник</input>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"1.8\" onchange=\"selCultType()\">" +
+                        "Helianthus</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r4\"onchange=\"selCultType()\">" +
-                        "Ріпак </input>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"0.7\"onchange=\"selCultType()\">" +
+                        "Raptus </input>" +
                             "<br/>"+
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r5\" onchange=\"selCultType()\">Соя" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"1.2\" onchange=\"selCultType()\">Soybean" +
                         "</input>" +
                             "<br/>"+
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r6\" onchange=\"selCultType()\">Картопля" +
-                        "</input><br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r7\"onchange=\"selCultType()\">Морква" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"2.4\" onchange=\"selCultType()\">Potatoes" +
+                        "</input>" +
+                            "<br/>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"0.5\"onchange=\"selCultType()\">Sit amet" +
                         "</input>" +
                             "</td>" +
                             "<td>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r8\" onchange=\"selCultType()\">Огірки" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"0.5\" onchange=\"selCultType()\">Cereals" +
                         "</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r9\" onchange=\"selCultType()\">Капуста" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"2.4\" onchange=\"selCultType()\">Frumentum" +
                         "</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r10\" onchange=\"selCultType()\">Пасльонові" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"1.2\" onchange=\"selCultType()\">Helianthus" +
                         "</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r11\" onchange=\"selCultType()\">Сади" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"0.7\" onchange=\"selCultType()\">Gardens" +
                         "</input>" +
                             "<br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r12\" onchange=\"selCultType()\">" +
-                        "Виноград</input><br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r13\" onchange=\"selCultType()\">Ягідні " +
-                        "культури</input><br/>" +
-                            "<input type=\"radio\" name=\"agroculture\" value=\"r14\" onchange=\"selCultType()\">Кімнатні" +
-                        " рослини</input>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"2.84\" onchange=\"selCultType()\">" +
+                        "Uvarum</input><br/>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"1.23\" onchange=\"selCultType()\">" +
+                        "Brassica</input><br/>" +
+                            "<input type=\"radio\" name=\"agroculture\" value=\"0.5\" onchange=\"selCultType()\">" +
+                        "Houseplants</input>" +
                     "</td>" +
                 "</tr>" +
-            "</table>";
-    } else if (irrigationType == 2) {
-        document.getElementById('01').setAttribute('hidden', 'hidden');
-        document.getElementById('product').innerHTML = "Вкажіть тип зрошення &nbsp; " +
+            "</table>"+
+        "</div>";
+        changeAmount();
+    } else if (irrigationType == "i2") {
+        document.getElementById('i0').setAttribute('hidden', 'hidden');
+        document.getElementById('product').innerHTML = "<div class=\"container\"><h4>Вкажіть культуру:</h4> &nbsp; " +
             "<table>" +
                 "<tr>" +
                     "<td>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r14\" onchange=\"selCultType()\">Кімнатні" +
-                    " рослини</input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.14\" onchange=\"selCultType()\">" +
+                    "Houseplants</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r13\" onchange=\"selCultType())\">Ягідні" +
-                    " культури</input><br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r12\" onchange=\"selCultType()\">Виноград" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.33\" onchange=\"selCultType()\">Bacas" +
+                    "</input><br/>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.12\" onchange=\"selCultType()\">Uvarum" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r11\" onchange=\"selCultType()\">Сади" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.11\" onchange=\"selCultType()\">Gardens" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r10\" onchange=\"selCultType()\">Пасльонові" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.10\" onchange=\"selCultType()\">Solanaceae" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r9\" onchange=\"selCultType()\">Капуста" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.9\" onchange=\"selCultType()\">Brassica" +
                     "</input>" +
                         "<br/>" +
-                        "<td>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r8\" onchange=\"selCultType()\">Огірки" +
-                    "</input>" +
-                        "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r7\"onchange=\"selCultType()\">Морква" +
-                    "</input>" +
                     "</td>" +
                     "<td>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r6\" onchange=\"selCultType()\">Картопля" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.66\" onchange=\"selCultType()\">Cucumerario" +
                     "</input>" +
                     "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r5\" onchange=\"selCultType()\">Соя" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.5\" onchange=\"selCultType()\">Sit amet" +
                     "</input><br/>"+
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r2\" onchange=\"selCultType()\">Кукурудза" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.21\" onchange=\"selCultType()\">Potatoes" +
                     "</input><br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r4\"onchange=\"selCultType()\">Ріпак</input>" +
-                    "<br/>"+
-                    "<input type=\"radio\" name=\"agroculture\" value=\"r3\" onchange=\"selCultType()\">Соняшник" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.44\"onchange=\"selCultType()\">Soybean" +
+                        "</input>" +
+                        "<br/>"+
+                    "<input type=\"radio\" name=\"agroculture\" value=\"0.38\" onchange=\"selCultType()\">Raptus" +
+                        "</input>" +
+                        "<br/>" +
+                    "<input type=\"radio\" name=\"groculture\" value=\"0.17\" onchange=\"selCultType()\">Helianthus" +
                         "</input><br/>" +
-                    "<input type=\"radio\" name=\"groculture\" value=\"r1\" onchange=\"selCultType()\">Зернові" +
-                        " культури</input><br/>" +
                     "</td>" +
                 "</tr>" +
-            "</table>";
-    } else if (irrigationType == 3) {
-        document.getElementById('01').setAttribute('hidden', 'hidden');
-        document.getElementById('product').innerHTML = "Вкажіть тип зрошення &nbsp; " +
+            "</table>" +
+        "</div>";
+        changeAmount();
+    } else if (irrigationType == "i3") {
+        document.getElementById('i0').setAttribute('hidden', 'hidden');
+        document.getElementById('product').innerHTML = "<div class=\"container\"><h4>Вкажіть культуру:</h4> &nbsp; " +
             "<table>" +
                 "<tr>" +
                     "<td>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r1\" onchange=\"selCultType()\">" +
-                    "Зернові культури</input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.56\" onchange=\"selCultType()\">" +
+                    "Cereals</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r2\" onchange=\"selCultType()\">" +
-                    "Кукурудза</input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.78\" onchange=\"selCultType()\">" +
+                    "Frumentum</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r3\" onchange=\"selCultType()\">" +
-                    "Соняшник</input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.96\" onchange=\"selCultType()\">" +
+                    "Helianthus</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r4\"onchange=\"selCultType()\">" +
-                    "Ріпак </input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.24\"onchange=\"selCultType()\">" +
+                    "Raptus </input>" +
                         "<br/>"+
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r5\" onchange=\"selCultType()\">Соя" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.39\" onchange=\"selCultType()\">Soybean" +
                     "</input>" +
                         "<br/>"+
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r6\" onchange=\"selCultType()\">Картопля" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.16\" onchange=\"selCultType()\">Potatoes" +
                     "</input><br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r7\"onchange=\"selCultType()\">Морква" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.71\"onchange=\"selCultType()\">Sit amet" +
                     "</input>" +
                     "</td>" +
                     "<td>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r8\" onchange=\"selCultType()\">Огірки" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.88\" onchange=\"selCultType()\">Cucumerario" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r9\" onchange=\"selCultType()\">Капуста" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.9\" onchange=\"selCultType()\">Brassica" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r10\" onchange=\"selCultType()\">Пасльонові" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.10\" onchange=\"selCultType()\">" +
+                    "Solanaceae\"</input>" +
+                        "<br/>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.31\" onchange=\"selCultType()\">Gardens" +
                     "</input>" +
                         "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r11\" onchange=\"selCultType()\">Сади" +
-                    "</input>" +
-                        "<br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r12\" onchange=\"selCultType()\">" +
-                    "Виноград</input><br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r13\" onchange=\"selCultType()\">Ягідні " +
-                    "культури</input><br/>" +
-                        "<input type=\"radio\" name=\"agroculture\" value=\"r14\" onchange=\"selCultType()\">Кімнатні" +
-                    " рослини</input>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.42\" onchange=\"selCultType()\">Uvarum" +
+                    "</input><br/>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.18\" onchange=\"selCultType()\">Bacas" +
+                    "</input><br/>" +
+                        "<input type=\"radio\" name=\"agroculture\" value=\"0.27\" onchange=\"selCultType()\">" +
+                        "Houseplants</input>" +
                 "</td>" +
             "</tr>" +
-        "</table>";
+        "</table>" +
+    "</div>";
+     changeAmount();
     }
 }
 
 function selCultType() {
-    document.getElementById('product').removeAttribute('hidden');
+    document.getElementById('producttype').removeAttribute('hidden');
+    document.getElementById('proxy').setAttribute('hidden', "hidden");
+    changeAmount();
 }
 
 function changeProdType() {
     document.getElementById('prod0').setAttribute('hidden', 'hidden');
+    changeAmount();
 }
 
 function changeDim() {
     document.getElementById('dim0').setAttribute('hidden', 'hidden');
+    changeAmount();
 }
 
 function changeAmount() {
-    var coeff1 = parseInt(document.getElementById('irrigation').value);
-    var coeff2 = parseInt(document.getElementById('culture').value);
-    var coeff3 = parseFloat(document.getElementById('product').value);
-    var coeff4 = parseFloat(document.getElementById('dimension').value);
+    var coeff1 = parseFloat(document.getElementById('irrigation').options[document.getElementById('irrigation')
+        .selectedIndex].value);
+    var coeff2 = 1;
+    var elems = document.getElementsByName('agroculture');
+    for (var i = 0; i < elems.length; i++) {
+        if (document.getElementsByName('agroculture')[i].checked == true) {
+            coeff2 = document.getElementsByName('agroculture')[i].value;
+        }
+    }
+    var coeff3 = parseFloat(document.getElementById('prodType').options[document.getElementById('prodType')
+        .selectedIndex].value );
     var amount = parseInt(document.getElementById('amount').value);
+    if (amount == 0) amount = NaN;
+    var coeff4 = parseFloat(document.getElementById('dimension').value);
 
-    if (coeff1 != null && coeff2 != null && coeff3 != null && coeff4 != null && amount != null) {
+
+    var res = coeff1 * coeff2 * coeff3 * coeff4 * amount;
+    res = Math.round(res);
+
+    var prodId = document.getElementById('prodType').options[document.getElementById('prodType').selectedIndex].id;
+
+    //alert("coeff1="+coeff1+", coeff2="+coeff2+", coeff3="+coeff3+", coeff4=" + coeff4 + ", amount=" + amount);
+    //alert("res=" + res);
+
+    if ("" + res != "NaN" && amount != 0) {
+        if (res >= 1) {
+        document.getElementById('result').innerHTML =
+            "<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться " + res + " л обраної марки бiогумату</p></h3> &nbsp;" +
+            "<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/" +
+            res + "/" + prodId + "\'\"/>" +
+            "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
+            "<br/><br/>";
+        } else if (res <= 0) {
+            document.getElementById('result').innerHTML = "" +
+                "<br/>" +
+                "<br/>" +
+                "<br/>" +
+                "<br/>" +
+                "<br/>";
+        } else {
+            document.getElementById('result').innerHTML =
+                "<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться 1 л обраної марки бiогумату</p></h3> &nbsp;" +
+                "<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/1/" + prodId + "\'\"/>" +
+                "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
+                "<br/><br/>";
+        }
+    } else {
         document.getElementById('result').innerHTML = "" +
-            "<hr/>" +
-                "<h2>" +
-                    "<p style=\"color:#006942;\">" +
-                    "Вам знадобиться \' + res + \' л обраного бiогумату </p>" +
-                "</h2> " +
-                "<h2>" +
-                    "<input type=\"button\" value=\"Замовити\" onclick=\"document.location = \'/order?numb=\'+" +
-            " \'numb&id=\' + type + \" />" +
-            "<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'" +
-            " \'numb&id=\' + type + \" /></h2>";
+            "<br/>" +
+            "<br/>" +
+            "<br/>" +
+            "<br/>" +
+            "<br/>";
     }
 }
+
+    //document.getElementById('result').innerHTML =
+    //"<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться 12 л обраної марки бiогумату</p></h3> &nbsp;" +
+    //"<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order?numb=12&type=1\'\"/>" +
+    //"&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
+    //"<br/><br/>";

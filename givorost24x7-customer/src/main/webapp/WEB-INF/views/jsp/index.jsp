@@ -254,10 +254,10 @@
                                 <a href="contacts" class="active">Контакти</a>
                             </li>
                             <li class="parent">
-                                <a href="calculator" class="active">&nbsp; &nbsp; &nbsp; &nbsp; Розрахувати</a>
+                                <a href="calculation" class="active">&nbsp; &nbsp; &nbsp; &nbsp; Розрахувати</a>
                             </li>
                             <li class="parent">
-                                <a href="order" class="active">Замовити</a>
+                                <a href="order/0/0" class="active">Замовити</a>
                             </li>
                         </ul>
                         <div class="clearfix"> </div>
