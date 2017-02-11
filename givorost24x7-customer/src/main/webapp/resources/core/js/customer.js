@@ -180,7 +180,7 @@ function changeDim() {
 function changeAmount() {
     var coeff1 = parseFloat(document.getElementById('irrigation').options[document.getElementById('irrigation')
         .selectedIndex].value);
-    var coeff2 = 1;
+    var coeff2 = NaN;
     var elems = document.getElementsByName('agroculture');
     for (var i = 0; i < elems.length; i++) {
         if (document.getElementsByName('agroculture')[i].checked == true) {
@@ -194,35 +194,33 @@ function changeAmount() {
     var coeff4 = parseFloat(document.getElementById('dimension').value);
 
 
-    var res = coeff1 * coeff2 * coeff3 * coeff4 * amount;
-    res = Math.round(res);
+    var pes = coeff1 * coeff2 * coeff3 * coeff4 * amount;
+    var res = Math.round(pes);
 
     var prodId = document.getElementById('prodType').options[document.getElementById('prodType').selectedIndex].id;
 
-    //alert("coeff1="+coeff1+", coeff2="+coeff2+", coeff3="+coeff3+", coeff4=" + coeff4 + ", amount=" + amount);
-    //alert("res=" + res);
 
-    if ("" + res != "NaN" && amount != 0) {
-        if (res >= 1) {
+    if ("" + res != "NaN") {
+        if (res > 1) {
         document.getElementById('result').innerHTML =
             "<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться " + res + " л обраної марки бiогумату</p></h3> &nbsp;" +
             "<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/" +
             res + "/" + prodId + "\'\"/>" +
             "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
             "<br/><br/>";
-        } else if (res <= 0) {
+        } else if (res == 0 || res == 1) {
+            document.getElementById('result').innerHTML =
+                "<br/><h3><p style=\"color:#0EB956;\">Вам вистачить 1 литру обраної марки бiогумату</p></h3> &nbsp;" +
+                "<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/1/" + prodId + "\'\"/>" +
+                "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
+                "<br/><br/>";
+        } else {
             document.getElementById('result').innerHTML = "" +
                 "<br/>" +
                 "<br/>" +
                 "<br/>" +
                 "<br/>" +
                 "<br/>";
-        } else {
-            document.getElementById('result').innerHTML =
-                "<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться 1 л обраної марки бiогумату</p></h3> &nbsp;" +
-                "<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/1/" + prodId + "\'\"/>" +
-                "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
-                "<br/><br/>";
         }
     } else {
         document.getElementById('result').innerHTML = "" +
@@ -234,8 +232,6 @@ function changeAmount() {
     }
 }
 
-    //document.getElementById('result').innerHTML =
-    //"<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться 12 л обраної марки бiогумату</p></h3> &nbsp;" +
-    //"<br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order?numb=12&type=1\'\"/>" +
-    //"&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
-    //"<br/><br/>";
+function changeProd() {
+    document.getElementById('prod0').setAttribute('hidden', 'hidden');
+}

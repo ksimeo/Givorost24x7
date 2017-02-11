@@ -271,22 +271,28 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-center">
                             <li class="parent">
-                                <a href="" class="active">Головна</a>
+                                <a href="../" class="active">Головна</a>
                             </li>
                             <li class="parent">
-                                <a href="about" class="active">Про нас</a>
+                                <a href="../about" class="active">Про нас</a>
                             </li>
                             <li class="parent">
                                 <a href="../products">Продукція</a>
                             </li>
                             <li class="parent">
-                                <a href="articles" class="active">Статті</a>
+                                <a href="../articles" class="active">Статті</a>
                             </li>
                             <li class="parent">
-                                <a href="sales">Акції</a>
+                                <a href="../sales">Акції</a>
                             </li>
                             <li class="parent">
-                                <a href="contacts">Контакти</a>
+                                <a href="../contacts">Контакти</a>
+                            </li>
+                            <li class="parent">
+                                <a href="calculation" class="active">&nbsp; &nbsp; &nbsp; &nbsp; Розрахувати</a>
+                            </li>
+                            <li class="parent">
+                                <a href="order/0/0" class="active">Замовити</a>
                             </li>
                         </ul>
                     </div>

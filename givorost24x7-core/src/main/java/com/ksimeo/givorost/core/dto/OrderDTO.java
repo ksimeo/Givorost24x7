@@ -15,16 +15,12 @@ public class OrderDTO implements Serializable {
     private String name;
     private String tel;
     private String email;
-    private String prod;
+    private ProductDTO prod;
     private Integer amount;
 
 
     public OrderDTO() {
     }
-//
-//    public boolean isNew() {
-//        return this.id == null;
-//    }
 
     public Integer getId() {
         return id;
@@ -58,11 +54,11 @@ public class OrderDTO implements Serializable {
         this.email = email;
     }
 
-    public String getProd() {
+    public ProductDTO getProd() {
         return prod;
     }
 
-    public void setProd(String prod) {
+    public void setProd(ProductDTO prod) {
         this.prod = prod;
     }
 
@@ -81,7 +77,7 @@ public class OrderDTO implements Serializable {
                 ", name='" + name + '\'' +
                 ", tel='" + tel + '\'' +
                 ", email='" + email + '\'' +
-                ", prod='" + prod + '\'' +
+                ", prod=" + prod +
                 ", amount=" + amount +
                 '}';
     }

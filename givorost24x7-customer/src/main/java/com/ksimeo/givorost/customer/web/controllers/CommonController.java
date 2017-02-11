@@ -1,12 +1,17 @@
 package com.ksimeo.givorost.customer.web.controllers;
 
+import com.ksimeo.givorost.api.services.ProductService;
+import com.ksimeo.givorost.core.dto.ProductDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * @author Ksimeo. Created on 03.02.2017 at 14:02 for "givorost24x7" project.
@@ -17,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CommonController {
 
     private final Logger logger = LoggerFactory.getLogger(CommonController.class);
+    @Autowired
+    private ProductService prodServ;
 
     @RequestMapping( value = {"/", "/index"}, method = RequestMethod.GET )
     public String showIndex() {
@@ -77,13 +84,21 @@ public class CommonController {
     public String showCalculator(Model model) {
         logger.debug("showCalculator()");
         model.addAttribute("title", "Обчислення необхідної вам кількості");
-        return "orders/calculator";
+        try {
+            List<ProductDTO> prods = prodServ.getAll();
+            model.addAttribute("prods", prods);
+            return "orders/calculator";
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("showCalculator()");
+            return null;
+        }
     }
 
-    @RequestMapping( value = "/order/{type}/{amount}", method = RequestMethod.GET )
-    public String showOrderform(@PathVariable int type, @PathVariable int amount, Model model) {
-        logger.debug("showOrderform()");
-        model.addAttribute("title", "Оформлення замовлення");
-        return "orders/orderform";
-    }
+//    @RequestMapping( value = "/order/{type}/{amount}", method = RequestMethod.GET )
+//    public String showOrderform(@PathVariable int type, @PathVariable int amount, Model model) {
+//        logger.debug("showOrderform()");
+//        model.addAttribute("title", "Оформлення замовлення");
+//        return "orders/orderform";
+//    }
 }

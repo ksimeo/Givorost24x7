@@ -12,73 +12,75 @@
 
 <div class="container">
 
-    <%--<c:choose>--%>
-        <%--<c:when test="${orderForm['new']}">--%>
-            <%--<h1>Заказать товар</h1>--%>
-        <%--</c:when>--%>
-        <%--<c:otherwise>--%>
-            <%--<h1>Изменить заказ</h1>--%>
-        <%--</c:otherwise>--%>
-    <%--</c:choose>--%>
-    <br />
+    <spring:url value="/order" var="userActionUrl" />
 
-    <spring:url value="/orders" var="userActionUrl" />
+        <div class="container">
+            <br/>
+            <h3 class="title">Здійснення замовлення</h3>
+            <br/>
+            <br/>
+            <h4>Для здійснення замовлення, будь ласка, заповнить усі поля форми або тільки номер телефону:</h4>
+            <br/>
+        </div>
 
     <form:form class="form-horizontal" method="post"
                modelAttribute="orderForm" action="${userActionUrl}">
 
         <form:hidden path="id" />
 
-        <spring:bind path="name">
+        <spring:bind path="tel">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">Имя:</label>
+                <label class="col-sm-2 control-label">Телефон: +380</label>
                 <div class="col-sm-10">
-                    <form:input path="name" type="text" class="form-control"
-                                id="name" placeholder="Пожалуйста, напишите как к вам обращаться" />
-                    <form:errors path="name" class="control-label" />
+                    <form:input path="tel" class="form-control"
+                                id="tel" placeholder="Номер вашого телефону" />
+                    <form:errors path="tel" class="control-label" />
                 </div>
             </div>
         </spring:bind>
 
-        <spring:bind path="tel">
+        <spring:bind path="name">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">Телефон:</label>
+                <label class="col-sm-2 control-label">Ваше і'мя:</label>
                 <div class="col-sm-10">
-                    <form:input path="tel" class="form-control"
-                                id="tel" placeholder="Ваш номер телефона" />
-                    <form:errors path="tel" class="control-label" />
+                    <form:input path="name" type="text" class="form-control"
+                                id="name" placeholder="Будь ласка, напишить як до вас звертатися (бажано)" />
+                    <form:errors path="name" class="control-label" />
                 </div>
             </div>
         </spring:bind>
 
         <spring:bind path="email">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">E-mail:</label>
+                <label class="col-sm-2 control-label">Електронна скринька:</label>
                 <div class="col-sm-10">
                     <form:input path="email" class="form-control"
-                                id="email" placeholder="Ваша эл.почта" />
+                                id="email" placeholder="Бажано" />
                     <form:errors path="email" class="control-label" />
                 </div>
             </div>
         </spring:bind>
 
-        <spring:bind path="prod">
-            <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">Продукт:</label>
-                <div class="col-sm-10">
-                    <form:input path="prod" class="form-control"
-                                   id="prod" placeholder="Название продукта" />
-                    <form:errors path="prod" class="control-label" />
-                </div>
+        <div class="form-group" >
+            <label class="col-sm-2 control-label">Марка продукту:</label>
+            <div class="col-sm-10">
+                <select id="prod" name="product" size="1" onchange="changeProd()">
+                    <option name="prod" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
+                    <c:forEach items="${prods}" var="item">
+                        <option name="type" value="${item.id}" ${item.id == prodType ? 'selected="selected"' : ''}>
+                                ${item.name}</option>
+                    </c:forEach>
+                </select>
             </div>
-        </spring:bind>
+        </div>
 
         <spring:bind path="amount">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">Количество:</label>
+                <label class="col-sm-2 control-label">Кількість продукту обраної марки:</label>
                 <div class="col-sm-10">
                     <form:input path="amount" type="number" class="form-control"
-                                   id="amount" placeholder="Необходимое количество продукта" />
+                                   id="amount" style='width: 2em important;'
+                                placeholder="Необходимое количество продукта" />
                     <form:errors path="amount" class="control-label" />
                 </div>
             </div>
@@ -86,16 +88,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <%--<c:choose>--%>
-                    <%--<c:when test="${orderForm['new']}">--%>
-                        <button type="submit" class="btn-lg btn-primary pull-right">Заказать
-                        </button>
-                    <%--</c:when>--%>
-                    <%--<c:otherwise>--%>
-                        <%--<button type="submit" class="btn-lg btn-primary pull-right">Изменить--%>
-                        <%--</button>--%>
-                    <%--</c:otherwise>--%>
-                <%--</c:choose>--%>
+                <button type="submit" class="btn-lg btn-primary pull-right">Замовити</button>
             </div>
         </div>
     </form:form>

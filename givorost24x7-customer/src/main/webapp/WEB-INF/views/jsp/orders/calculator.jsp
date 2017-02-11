@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 
@@ -8,7 +9,7 @@
 
     <div class="container">
         <br/>
-        <h3 class="title">Розрахунок потрібної вам кiлькостi нашого продукту</h3>
+        <h3 class="title">Розрахунок потрібної кiлькостi</h3>
         <br/>
         <br/>
     </div>
@@ -57,13 +58,16 @@
         <br/>
         <label>
             <select id="prodType" name="prodType" onchange="changeProdType()" size="1">
-                <option name="prod" id="prod0" value="0">-Виберіть-тип-продукту-</option>
-                <option name="prod" id="1" value="0.1">Бiогумат для вiдкритого грунту</option>
-                <option name="prod" id="2" value="0.25">Бiогумат для закритого грунту</option>
+                <option name="prod" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
+                <%--<option name="prod" id="1" value="0.1">Бiогумат для вiдкритого грунту</option>--%>
+                <%--<option name="prod" id="2" value="0.25">Бiогумат для закритого грунту</option>--%>
+                <c:forEach items="${prods}" var="item">
+                    <option name="prod" id="${item.id}" value="${item.coeff}">${item.name}</option>
+                </c:forEach>
             </select>
             <input type="number" id="amount" min="1" max="999999" onchange="changeAmount()" required>
             <select id="dimension" name="dimension" size="1"  onchange="changeDim()">
-                <option id="dim0" value="0">-виберiть-розмiрнiсть-</option>
+                <option id="dim0" value="NaN">-виберiть-розмiрнiсть-</option>
                 <option value="1">кв.м</option>
                 <option value="100">Ар</option>
                 <option value="10000">Га</option>

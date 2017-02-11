@@ -19,8 +19,10 @@ public class Order {
     private String tel;
     @Column(name = "email")
     private String email;
-    @Column(name = "prod_name")
-    private String prod;
+    @Column(name = "product")
+    @OneToOne
+    @JoinColumn(name = "id")
+    private Product prod;
     @Column
     private Integer amount;
 
@@ -29,11 +31,11 @@ public class Order {
         //NOP
     }
 
-    public Order(int id, String name, String telNumber, String prodName, int amount) {
+    public Order(int id, String name, String telNumber, Product prod, int amount) {
         this.id = id;
         this.name = name;
         this.tel = telNumber;
-        this.prod = prodName;
+        this.prod = prod;
         this.amount = amount;
     }
 
@@ -49,11 +51,11 @@ public class Order {
         this.id = id;
     }
 
-    public String getProd() {
+    public Product getProd() {
         return prod;
     }
 
-    public void setProd(String prod) {
+    public void setProd(Product prod) {
         this.prod = prod;
     }
 
@@ -123,7 +125,7 @@ public class Order {
                 ", name='" + name + '\'' +
                 ", tel='" + tel + '\'' +
                 ", email='" + email + '\'' +
-                ", prod='" + prod + '\'' +
+                ", prod=" + prod +
                 ", amount=" + amount +
                 '}';
     }

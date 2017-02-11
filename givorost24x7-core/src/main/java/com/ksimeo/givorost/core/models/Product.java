@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @since 1.0
  */
 @Entity
-@Table(name = "commodities")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue
@@ -29,6 +29,14 @@ public class Product {
         this.coeff = coeff;
         this.price = price;
     }
+
+    public Product(int id, String name, float coeff, float price) {
+        this.id = id;
+        this.name = name;
+        this.coeff = coeff;
+        this.price = price;
+    }
+
 
     public String getName() {
         return name;

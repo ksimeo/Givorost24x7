@@ -2,7 +2,6 @@ package com.ksimeo.givorost.impl.dao.mocks;
 
 import com.ksimeo.givorost.api.dao.ProductDAO;
 import com.ksimeo.givorost.core.dto.ProductDTO;
-import com.ksimeo.givorost.core.models.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -21,9 +20,9 @@ public class ProductDaoMock implements ProductDAO {
 
     public ProductDaoMock() {
         products = new ArrayList<>(3);
-        products.add(new ProductDTO("Продукт 1", 1.99f, 2.43f));
-        products.add(new ProductDTO("Продукт 2", 0.97f, 0.99f));
-        products.add(new ProductDTO("Продукт 3", 1.27f, 0.75f));
+        products.add(new ProductDTO(1, "Продукт 1", 1.99f, 2.43f));
+        products.add(new ProductDTO(2, "Продукт 2", 0.97f, 0.99f));
+        products.add(new ProductDTO(3, "Продукт 3", 1.27f, 0.75f));
     }
 
     @Override

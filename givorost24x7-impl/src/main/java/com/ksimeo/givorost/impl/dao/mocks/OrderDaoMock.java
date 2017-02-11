@@ -4,6 +4,7 @@ import com.ksimeo.givorost.api.dao.OrderDAO;
 import com.ksimeo.givorost.core.converters.OrderConverter;
 import com.ksimeo.givorost.core.dto.OrderDTO;
 import com.ksimeo.givorost.core.models.Order;
+import com.ksimeo.givorost.core.models.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -22,11 +23,13 @@ public class OrderDaoMock implements OrderDAO {
 
     public OrderDaoMock() {
         ordStorage = new ArrayList<>(20);
-        ordStorage.add(new Order(1, "Соль", "+380674567890", "Александр Анатольевич", 98));
-        ordStorage.add(new Order(2, "Спички", "0934567678", "Вася", 2));
-        ordStorage.add(new Order(3, "Перец", "04434567689", "Евгений", 23));
-        ordStorage.add(new Order(4, "Сахар", "0567750544", "Максим", 4));
-        ordStorage.add(new Order(5, "Корица", "0503456789", "Дмитрий", 6));
+        Product prod1 = new Product(1, "Біогумат для відкритого грунту", 0.97f, 3.55f);
+        Product prod2 = new Product(2, "Біогумат для закритого грунту", 0.55f, 2.40f);
+        ordStorage.add(new Order(1, "Александр Анатольевич", "+380674567890", prod1, 98));
+        ordStorage.add(new Order(2, "Вася", "+380934567678", prod2, 2));
+        ordStorage.add(new Order(3, "Евгений", "04434567689", prod1, 23));
+        ordStorage.add(new Order(4, "Максим", "0567750544", prod1, 4));
+        ordStorage.add(new Order(5, "Дмитрий", "0503456789", prod2, 6));
     }
 
     @Override

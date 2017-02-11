@@ -10,8 +10,6 @@ import com.ksimeo.givorost.core.models.Order;
  */
 public class OrderConverter {
 
-    private OrderConverter() {
-    }
 
     public static Order convert(OrderDTO orderDto) {
         Order toSend = new Order();
@@ -19,7 +17,7 @@ public class OrderConverter {
         toSend.setName(orderDto.getName());
         toSend.setTel(orderDto.getTel());
         toSend.setEmail(orderDto.getEmail());
-        toSend.setProd(orderDto.getProd());
+        toSend.setProd(ProductConverter.convert(orderDto.getProd()));
         toSend.setAmount(orderDto.getAmount());
         return toSend;
     }
@@ -30,7 +28,7 @@ public class OrderConverter {
         toSend.setName(order.getName());
         toSend.setTel(order.getTel());
         toSend.setEmail(order.getEmail());
-        toSend.setProd(order.getProd());
+        toSend.setProd(ProductConverter.convert(order.getProd()));
         toSend.setAmount(order.getAmount());
         return toSend;
     }

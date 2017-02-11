@@ -21,14 +21,14 @@ public class ProductServImpl implements ProductService {
     private ObjectMapper mapper;
 
     @Override
-    public void addProduct(ProductDTO product) throws Exception{
+    public void addOne(ProductDTO product) throws Exception{
         URI = RepoServerConfig.URL + "product/addone";
         String data = mapper.writeValueAsString(product);
         String echo = RequestsHelper.sendPost(URI, data);
     }
 
     @Override
-    public ProductDTO getProduct(int id) throws Exception {
+    public ProductDTO getOne(int id) throws Exception {
         URI = RepoServerConfig.URL + "product/getone/" + id;
         String echo = RequestsHelper.sendGet(URI);
         ProductDTO toSend = mapper.readValue(echo, ProductDTO.class);
@@ -36,7 +36,7 @@ public class ProductServImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> getAllProducts() throws Exception {
+    public List<ProductDTO> getAll() throws Exception {
         URI = RepoServerConfig.URL + "prod/getall";
         String echo = RequestsHelper.sendGet(URI);
         List<ProductDTO> toSend = mapper.readValue(echo, new TypeReference<List<ProductDTO>>(){});
@@ -44,13 +44,13 @@ public class ProductServImpl implements ProductService {
     }
 
     @Override
-    public void delProduct(int id) throws Exception{
+    public void delOne(int id) throws Exception{
         URI = RepoServerConfig.URL + "prod/delone/" + id;
         RequestsHelper.sendGet(URI);
     }
 
     @Override
-    public void delAllProducts() {
+    public void delAll() {
 
     }
 }

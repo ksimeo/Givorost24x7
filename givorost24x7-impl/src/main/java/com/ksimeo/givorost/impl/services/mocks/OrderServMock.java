@@ -6,6 +6,7 @@ import com.ksimeo.givorost.core.dto.OrderDTO;
 import com.ksimeo.givorost.core.parcels.OrderPage;
 import com.ksimeo.givorost.impl.utilites.PagesHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-
+@Service
 public class OrderServMock implements OrderService {
 
     public static final int rowMaxCountOnPage = 5;

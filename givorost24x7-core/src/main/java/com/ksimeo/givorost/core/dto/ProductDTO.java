@@ -7,6 +7,7 @@ package com.ksimeo.givorost.core.dto;
  */
 public class ProductDTO {
 
+    private int id;
     private String name;
     private float coeff;
     private float price;
@@ -14,11 +15,17 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(String name, float coeff, float price) {
+    public ProductDTO(int id, String name, float coeff, float price) {
+        this.id = id;
         this.name = name;
         this.coeff = coeff;
         this.price = price;
     }
+
+    public ProductDTO(String name) {
+        this.name = name;
+    }
+
 
     public String getName() {
         return name;
@@ -42,5 +49,18 @@ public class ProductDTO {
 
     public void setCoeff(float coeff) {
         this.coeff = coeff;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
