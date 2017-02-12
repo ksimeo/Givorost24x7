@@ -30,7 +30,7 @@ public class ProductServMock implements ProductService {
 
     @Override
     public ProductDTO getOne(int id) throws Exception {
-        return prods.get(id);
+        return prods.get(id - 1);
     }
 
     @Override

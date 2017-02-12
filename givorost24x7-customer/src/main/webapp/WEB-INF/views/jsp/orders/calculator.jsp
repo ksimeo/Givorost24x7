@@ -38,12 +38,12 @@
                 <br/>
                 <br/>
                 <br/>
+                <br/>
             </output>
         </h4>
     </div>
     <br/>
     <div id="proxy">
-        <br/>
         <br/>
         <br/>
         <br/>
@@ -59,8 +59,6 @@
         <label>
             <select id="prodType" name="prodType" onchange="changeProdType()" size="1">
                 <option name="prod" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
-                <%--<option name="prod" id="1" value="0.1">Бiогумат для вiдкритого грунту</option>--%>
-                <%--<option name="prod" id="2" value="0.25">Бiогумат для закритого грунту</option>--%>
                 <c:forEach items="${prods}" var="item">
                     <option name="prod" id="${item.id}" value="${item.coeff}">${item.name}</option>
                 </c:forEach>

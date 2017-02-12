@@ -10,15 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.Cookie;
+import javax.servlet.http.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -46,15 +44,9 @@ public class OrdersController {
     }
 
 
-//    @RequestMapping(value = "calculator", method = RequestMethod.GET)
-//    public String showCalculator() {
-//        logger.debug("showCalculator()");
-//        return "calculator";
-//    }
-
     @RequestMapping( value = "/order/{numb}/{type}", method = RequestMethod.GET )
     public String showOrderForm(@PathVariable("numb") int numb, @PathVariable("type") int type, Model model) {
-        logger.debug("showOrderForm()");
+        logger.debug("showOrderForm() numb: {}, type: {}", numb, type);
         model.addAttribute("title", "Здійснення замовлення");
         try {
             List<ProductDTO> prods = prodServ.getAll();
@@ -73,55 +65,6 @@ public class OrdersController {
         }
     }
 
-    @RequestMapping( value = "/orders", method = RequestMethod.POST)
-    public String saveOrderForm(@ModelAttribute("orderForm") @Validated OrderDTO order, BindingResult result,
-                                Model model, ModelMap modelMap, ServletRequest req, final RedirectAttributes redirectAttributes) {
-
-        logger.debug("saveOrderForm()");
-        try {
-            String prodId = req.getParameter("prod");
-            int id = Integer.parseInt(prodId);
-            ProductDTO prodDto = prodServ.getOne(id);
-            order.setProd(prodDto);
-            logger.info("saveOrderForm(): ", prodDto);
-            if (result.hasErrors()) {
-                model.addAttribute("orderForm", order);
-                return "orders/orderform";
-            } else {
-                redirectAttributes.addFlashAttribute("css", "success");
-                redirectAttributes.addFlashAttribute("msg", "Ваш заказ принят! Мы свяжемся с вами в ближайшее время!");
-                order = ordServ.addOne(order);
-                return "redirect:/orders/" + order.getId();
-            }
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("css", "danger");
-            redirectAttributes.addFlashAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    @RequestMapping( value = "/orders/{id}", method = RequestMethod.GET)
-    public String showOrder(@PathVariable("id") int id, Model model) {
-        try {
-            logger.debug("showOrder() id: {}", id);
-            OrderDTO order = ordServ.getOne(id);
-            ProductDTO prod = order.getProd();
-            if (order == null) {
-                model.addAttribute("css", "danger");
-                model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
-            }
-            model.addAttribute("order", order);
-            model.addAttribute("prod_name", prod.getName());
-            return "orders/confirmation";
-        } catch (Exception e) {
-            model.addAttribute("css", "danger");
-            model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     @RequestMapping( value = "/order", method = RequestMethod.POST)
     private String showConfirmation(OrderDTO order ,Model model, HttpServletRequest req, HttpServletResponse resp) {
         logger.debug("showConfirmation()");
@@ -134,25 +77,67 @@ public class OrdersController {
             order = ordServ.addOne(order);
             Cookie userTel = new Cookie("tel", order.getTel());
             resp.addCookie(userTel);
-            String name = order.getName();
-            if (name != null) {
-                Cookie userName = new Cookie("name", name);
-                resp.addCookie(userName);
-            }
-            String email = order.getEmail();
-            if (email != null) {
-                Cookie userEmail = new Cookie("emeil", email);
-                resp.addCookie(userEmail);
-            }
             model.addAttribute("order", order);
             model.addAttribute("css", "success");
-            model.addAttribute("msg", "Дякуємо за ваше замовлення! Ми зв'яжемося з вами найближчим часом");
+            model.addAttribute("msg", "Дякуємо за ваше замовлення! Ми зв'яжемося з вами найближчим часом :)");
             return "orders/confirmation";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("css", "danger");
-            model.addAttribute("msg", "Шкода, але на сервісі виникла помилка. Будь ласка, спробуйте ще раз пізніше");
+            model.addAttribute("msg", "Шкода, але на нашому сервісі виникли негоразди.:(" +
+                    " Будь ласка, спробуйте ще раз, пізніше!");
             return "orders/confirmation";
         }
     }
+
 }
+
+//    @RequestMapping( value = "/orders", method = RequestMethod.POST)
+//    public String saveOrderForm(@ModelAttribute("orderForm") @Validated OrderDTO order, BindingResult result,
+//                                Model model, ModelMap modelMap, ServletRequest req, final RedirectAttributes redirectAttributes) {
+//
+//        logger.debug("saveOrderForm()");
+//        try {
+//            String prodId = req.getParameter("prod");
+//            int id = Integer.parseInt(prodId);
+//            ProductDTO prodDto = prodServ.getOne(id);
+//            order.setProd(prodDto);
+//            logger.info("saveOrderForm(): ", prodDto);
+//            if (result.hasErrors()) {
+//                model.addAttribute("orderForm", order);
+//                return "orders/orderform";
+//            } else {
+//                redirectAttributes.addFlashAttribute("css", "success");
+//                redirectAttributes.addFlashAttribute("msg", "Ваш заказ принят! Мы свяжемся с вами в ближайшее время!");
+//                order = ordServ.addOne(order);
+//                return "redirect:/orders/" + order.getId();
+//            }
+//        } catch (Exception e) {
+//            redirectAttributes.addFlashAttribute("css", "danger");
+//            redirectAttributes.addFlashAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+
+//    @RequestMapping( value = "/orders/{id}", method = RequestMethod.GET)
+//    public String showOrder(@PathVariable("id") int id, Model model) {
+//        try {
+//            logger.debug("showOrder() id: {}", id);
+//            OrderDTO order = ordServ.getOne(id);
+//            ProductDTO prod = order.getProd();
+//            if (order == null) {
+//                model.addAttribute("css", "danger");
+//                model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
+//            }
+//            model.addAttribute("order", order);
+//            model.addAttribute("prod_name", prod.getName());
+//            return "orders/confirmation";
+//        } catch (Exception e) {
+//            model.addAttribute("css", "danger");
+//            model.addAttribute("msg", "Сервис допустил ошибку. Пожалуйста, попробуйте повторить позже.");
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+//}

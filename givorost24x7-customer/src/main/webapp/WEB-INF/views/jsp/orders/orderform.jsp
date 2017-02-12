@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk-UA">
 
 <jsp:include page="../fragments/header.jsp" />
 
@@ -38,6 +38,7 @@
                 </div>
             </div>
         </spring:bind>
+        <%--TODO validation tel.number and e-mail--%>
 
         <spring:bind path="name">
             <div class="form-group ${status.error ? 'has-error' : ''}">
@@ -76,7 +77,7 @@
 
         <spring:bind path="amount">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <label class="col-sm-2 control-label">Кількість продукту обраної марки:</label>
+                <label class="col-sm-2 control-label">Кількість продукту обраної марки (л):</label>
                 <div class="col-sm-10">
                     <form:input path="amount" type="number" class="form-control"
                                    id="amount" style='width: 2em important;'
@@ -88,7 +89,9 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn-lg btn-primary pull-right">Замовити</button>
+                <button type="button" onclick="document.location='/'" class="btn-lg btn-primary pull-right">
+                    Повернутися на головну</button> &nbsp; &nbsp;
+                <button type="submit" class="btn-lg btn-primary pull-right">Здійснити замовлення</button>
             </div>
         </div>
     </form:form>
