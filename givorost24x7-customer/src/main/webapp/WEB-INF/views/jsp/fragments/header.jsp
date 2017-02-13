@@ -36,7 +36,7 @@
     </script>
     <!-- //end-smooth-scrolling -->
     <!-- start-favicon -->
-    <link rel="shortcut icon" href="../../../../resources/images/ico/favicon.ico">
+    <link rel="shortcut icon" href="../../../../resources/images/ico/favicon.ico" />
     <!-- //end-favicon -->
     <base href=".">
     <style type="text/css">

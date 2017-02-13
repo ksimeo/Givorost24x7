@@ -24,26 +24,31 @@
         </div>
     </c:if>
 
-    <h1>All Orders</h1>
-
+    <h1>Замовлення що надійшли до останнього моменту</h1>
+    <br/>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>#ID</th>
-            <th>Prod Name</th>
-            <th>Tel number</th>
-            <th>Name</th>
-            <th>Amount</th>
+            <th>Дата/час</th>
+            <th>Номер телефону</th>
+            <th>Ім'я</th>
+            <th>Марка продукту</th>
+            <th>Кількість продукту</th>
+            <th></th>
         </tr>
         </thead>
 
         <c:forEach var="order" items="${orders}">
             <tr>
                 <td>${order.id}</td>
-                <td>${order.prod}</td>
+                <td>&nbsp;</td>
                 <td>${order.tel}</td>
                 <td>${order.name}</td>
+                <td>${order.prod.name}</td>
                 <td>${order.amount}</td>
+                <td><button class="btn btn-info" onclick="location.href='${orderUrl}'">Прочитано</button>
+                    <button class="btn btn-danger" onclick="location.href='${orderUrl}'">Видалити</button></td>
             </tr>
         </c:forEach>
     </table>
@@ -54,5 +59,5 @@
 </c:forEach>
     </ul>
 </div>
-</body>
-</html>
+
+<jsp:include page="../fragments/footer.jsp" />

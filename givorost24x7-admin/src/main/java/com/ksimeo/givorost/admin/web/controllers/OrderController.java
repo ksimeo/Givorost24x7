@@ -27,10 +27,10 @@ public class OrderController {
     @RequestMapping( value = "/", method = RequestMethod.GET)
     public String init() {
         logger.debug("init()");
-        return "redirect:/showorderspage/1";
+        return "redirect:/orders/1";
     }
 
-    @RequestMapping( value = "/showorderspage/{page:.+}", method = RequestMethod.GET)
+    @RequestMapping( value = "/orders/{page:.+}", method = RequestMethod.GET)
     public String showOrdersPage(@PathVariable int page, Model model) {
         try {
             logger.debug("showOrdersPage() : {}", page);
@@ -38,7 +38,7 @@ public class OrderController {
             model.addAttribute("orders", ordPage.getOrders());
             model.addAttribute("pagin", ordPage.getPagination());
             model.addAttribute("currpage", page);
-            return "orders/main";
+            return "orders/index";
         } catch (Exception e) {
             logger.error("showOrderPage()");
             e.printStackTrace();
@@ -46,4 +46,14 @@ public class OrderController {
         }
     }
 
+    @RequestMapping( value = "/orders/del/{id}", method = RequestMethod.GET )
+    public String delOrder(@PathVariable int id) {
+        return null;
+    }
+
+
+    @RequestMapping( value = "/orders/read/{id}", method = RequestMethod.GET )
+    public String doRead(@PathVariable int id) {
+        return null;
+    }
 }

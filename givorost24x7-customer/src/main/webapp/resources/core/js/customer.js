@@ -204,16 +204,15 @@ function changeAmount() {
         if (res > 1) {
         document.getElementById('result').innerHTML =
             "<br/><h3><p style=\"color:#0EB956;\">Вам знадобиться " + res + " л обраної марки бiогумату</p></h3> " +
-            "&nbsp; <br/><input type=\"button\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/" +
+            "&nbsp; <br/><input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Замовити\" onclick=\"document.location = \'/order/" +
             res + "/" + prodId + "\'\"/>" +
-            "&nbsp;<input type=\"button\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
-            "<br/>";
+            "&nbsp;<input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
+            "<br/><br/><br/>";
         } else if (res == 0 || res == 1) {
             document.getElementById('result').innerHTML =
                     "<br/>" +
                     "<h3><p style=\"color:#0EB956;\">Вам вистачить 1 литру обраної марки бiогумату</p></h3> &nbsp;" +
-                    "<br/><input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Здiйснити замовлення\" onclick=\"document.location = \'/order/1/" + prodId + "\'\"/> &nbsp; &nbsp; &nbsp; &nbsp; <input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/>" +
-                    "<br/><br/><br/><br/>";
+                    "<br/><input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Замовити\" onclick=\"document.location = \'/order/1/" + prodId + "\'\"/> &nbsp; &nbsp; &nbsp; &nbsp; <input type=\"button\" class=\"btn-lg btn-primary pull-left\" value=\"Повернутися на головну\" onclick=\"document.location = \'/\'\"/><br/><br/><br/>";
         } else {
             document.getElementById('result').innerHTML = "" +
                 "<br/>" +

@@ -1,0 +1,7 @@
+body {
+    margin: 0;
+    width: 100%;
+    background: #E0FFFF !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+}

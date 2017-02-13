@@ -16,13 +16,14 @@ public class TelValidator {
     private Pattern pattern;
     private Matcher matcher;
 
-    private static final String TELEFONE_NUMBER_PATTERN = "^([+]) + [0-9]";
+    private static final String TELEFONE_NUMBER_PATTERN = "[0-9]";
 
     public TelValidator() {
         pattern = Pattern.compile(TELEFONE_NUMBER_PATTERN);
     }
 
     public boolean valid(final String telNumber) {
+        if (telNumber.length() != 9) return false;
 
         matcher = pattern.matcher(telNumber);
         return matcher.matches();

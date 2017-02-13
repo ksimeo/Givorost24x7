@@ -21,9 +21,9 @@ public class OrderFormValidator implements Validator {
     @Autowired
     OrderService orderService;
 
-//    @Autowired
-//    @Qualifier("telValidator")
-//    TelValidator telValidator;
+    @Autowired
+    @Qualifier("telValidator")
+    TelValidator telValidator;
 
     @Autowired
     @Qualifier("emailValidator")
@@ -39,31 +39,20 @@ public class OrderFormValidator implements Validator {
 
         OrderDTO order = (OrderDTO) target;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty.orderForm.name");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "tel", "NotEmpty.orderForm.tel");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.orderForm.email");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "prod", "NotEmpty.orderForm.prod");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "amount", "NotEmpty.orderForm.amount");
 
-        if (order.getName() == null || order.getName().equals("")) {
-            errors.rejectValue("name", "NotEmpty.orderForm.name");
+        if (order.getTel() == null || order.getTel().equals("")) {
+            errors.rejectValue("tel", "NotEmpty.orderForm.tel");
+        } else {
+            if (!telValidator.valid(order.getTel())) {
+                errors.rejectValue("tel", "Pattern.orderForm.tel");
+            }
         }
 
-//        if (!telValidator.valid(order.getTel()) || (order.getTel().length() != 12 ^
-//                order.getTel().contains("+") & order.getTel().length() == 13)) {
-//            errors.rejectValue("tel", "Pattern.orderForm.tel");
-//        }
-
-        if (!emailValidator.valid(order.getEmail())){
-            errors.rejectValue("email", "Pattern.orderForm.email");
-        }
-
-        if (order.getProd() == null || order.getProd().equals("")) {
-            errors.rejectValue("prodName", "NotEmpty.orderForm.prod");
-        }
-
-        if (order.getAmount() == null || order.getAmount() <= 0) {
-            errors.rejectValue("amount", "NotEmpty.orderForm.amount");
+        if (order.getEmail() != null && !(order.getEmail().equals(""))) {
+            if (!emailValidator.valid(order.getEmail())) {
+                errors.rejectValue("email", "Pattern.orderForm.email");
+            }
         }
     }
 }

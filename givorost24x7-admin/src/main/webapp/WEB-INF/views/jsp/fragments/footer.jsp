@@ -3,7 +3,7 @@
 <div class="container">
     <hr>
     <footer>
-        <p>&copy; Ksimeo.com 2017</p>
+        <p>&copy; 2017 Ksimeo</p>
     </footer>
 </div>
 

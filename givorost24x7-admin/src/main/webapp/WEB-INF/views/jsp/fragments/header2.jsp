@@ -19,11 +19,11 @@
     <div class="container">
         <div class="navbar-header">
             <p class="navbar-brand" href="${urlHome}"><span><img src="../../../../resources/core/images/png/logo.png"
-                    width="160" height="30">24х7</span>
+                                                                 width="160" height="30">24х7</span>
         </div>
         <div id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="products'">До списку продуктів</a></li>
+                <li class="active"><a href="'/orders/1'">До журналу замовлень</a></li>
             </ul>
         </div>
     </div>
