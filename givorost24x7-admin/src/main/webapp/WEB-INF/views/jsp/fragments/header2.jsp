@@ -23,7 +23,7 @@
         </div>
         <div id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="'/orders/1'">До журналу замовлень</a></li>
+                <li class="active"><a href="orders/1">До журналу замовлень</a></li>
             </ul>
         </div>
     </div>

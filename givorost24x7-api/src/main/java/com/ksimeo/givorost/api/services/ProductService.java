@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface ProductService {
 
-    void addOne(ProductDTO product) throws Exception;
+    ProductDTO addOne(ProductDTO product) throws Exception;
     ProductDTO getOne(int id) throws Exception;
     List<ProductDTO> getAll() throws Exception;
     void delOne(int id) throws Exception;

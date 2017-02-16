@@ -2,7 +2,6 @@ package com.ksimeo.givorost.impl.services.mocks;
 
 import com.ksimeo.givorost.api.services.ProductService;
 import com.ksimeo.givorost.core.dto.ProductDTO;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-@Service
+//@Service
 public class ProductServMock implements ProductService {
 
     private List<ProductDTO> prods;
@@ -24,8 +23,11 @@ public class ProductServMock implements ProductService {
     }
 
     @Override
-    public void addOne(ProductDTO product) throws Exception {
+    public ProductDTO addOne(ProductDTO product) throws Exception {
         prods.add(product);
+        int id = prods.indexOf(product);
+        product.setId(id + 1);
+        return product;
     }
 
     @Override

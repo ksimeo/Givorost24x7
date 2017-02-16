@@ -87,6 +87,8 @@
             <br/>
         </output>
     </div>
+    <br/>
+    <br/>
 </div>
 
 <jsp:include page="../fragments/footer.jsp" />

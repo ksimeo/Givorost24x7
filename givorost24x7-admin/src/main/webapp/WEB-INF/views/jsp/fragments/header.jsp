@@ -23,7 +23,9 @@
         </div>
         <div id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="products'">До списку продуктів</a></li>
+                <li class="active"><button class="btn btn-default" onclick="document.location = '/logout'">Вийти
+                </button>
+                </li>
             </ul>
         </div>
     </div>

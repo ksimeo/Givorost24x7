@@ -1,13 +1,15 @@
 package com.ksimeo.givorost.core.dto;
 
+import java.io.Serializable;
+
 /**
  * @author Ksimeo. Created on 01.02.2017 at 21:08 for "givorost24x7" project.
  * @version 1.0
  * @since 1.0
  */
-public class ProductDTO {
+public class ProductDTO implements Serializable {
 
-    private int id;
+    private Integer id;
     private String name;
     private float coeff;
     private float price;
@@ -15,7 +17,7 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(int id, String name, float coeff, float price) {
+    public ProductDTO(Integer id, String name, float coeff, float price) {
         this.id = id;
         this.name = name;
         this.coeff = coeff;
@@ -25,7 +27,6 @@ public class ProductDTO {
     public ProductDTO(String name) {
         this.name = name;
     }
-
 
     public String getName() {
         return name;
@@ -51,16 +52,21 @@ public class ProductDTO {
         this.coeff = coeff;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return name;
+        return "ProductDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", coeff=" + coeff +
+                ", price=" + price +
+                '}';
     }
 }

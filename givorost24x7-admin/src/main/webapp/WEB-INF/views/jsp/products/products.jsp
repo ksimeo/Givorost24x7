@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<jsp:include page="../fragments/header2.jsp" />
+<jsp:include page="../fragments/header.jsp" />
 
 <body>
 
@@ -26,6 +26,9 @@
 
     <h1>Список продуктів</h1>
     <br/>
+    <c:choose>
+        <c:when test="${prods != null}">
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -43,15 +46,22 @@
                 <td>${prod.name}</td>
                 <td>${prod.coeff}</td>
                 <td>${prod.price}</td>
-                <td><button class="btn btn-info" onclick="location.href='products/change/${orderUrl}'">Змінити</button>
-                    <button class="btn btn-danger" onclick="location.href='products/delete/${orderUrl}'">Видалити
+                <td><button class="btn btn-info" onclick="location.href='products/change/${prod.id}'">Змінити</button>
+                    <button class="btn btn-warning" onclick="location.href='products/delete/${prod.id}'">Видалити
                     </button></td>
             </tr>
         </c:forEach>
     </table>
+        </c:when>
+        <c:otherwise>
+            <h3>Список продуктів доки що порожній.</h3>
+        </c:otherwise>
+    </c:choose>
     <br/>
-    <button type="button" onclick="document.location='/'" class="btn-lg btn-primary pull-right">Додати новий продукт
-    </button>
-</div>
+    <button type="button" class="btn-lg btn-primary pull-right" onclick="document.location='/orders/1'">
+        До листу замовлень</button> &nbsp;
+    <button type="button" class="btn-lg btn-primary pull-right" onclick="document.location='/products/add'">
+        Додати новий продукт</button>
+</div
 
 <jsp:include page="../fragments/footer.jsp" />

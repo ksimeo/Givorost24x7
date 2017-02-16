@@ -67,9 +67,11 @@ public class OrderDaoMock implements OrderDAO {
 
     @Override
     public List<OrderDTO> findAll() {
-        List<OrderDTO> toSend = new ArrayList<>(ordStorage.size());
-        ordStorage.forEach(order -> toSend.add(converter.convert(order)));
-        return toSend;
+        if (ordStorage.size() != 0) {
+            List<OrderDTO> toSend = new ArrayList<>(ordStorage.size());
+            ordStorage.forEach(order -> toSend.add(converter.convert(order)));
+            return toSend;
+        } else return null;
     }
 
     @Override

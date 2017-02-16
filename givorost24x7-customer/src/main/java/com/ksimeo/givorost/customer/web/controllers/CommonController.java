@@ -80,7 +80,7 @@ public class CommonController {
         return "contacts";
     }
 
-    @RequestMapping( value = "/calculation", method = RequestMethod.GET )
+    @RequestMapping( value = "/calc", method = RequestMethod.GET )
     public String showCalculator(Model model) {
         logger.debug("showCalculator()");
         model.addAttribute("title", "Обчислення необхідної вам кількості");

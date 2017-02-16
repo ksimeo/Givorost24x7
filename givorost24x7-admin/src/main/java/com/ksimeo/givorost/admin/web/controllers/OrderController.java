@@ -33,7 +33,7 @@ public class OrderController {
     @RequestMapping( value = "/orders/{page:.+}", method = RequestMethod.GET)
     public String showOrdersPage(@PathVariable int page, Model model) {
         try {
-            logger.debug("showOrdersPage() : {}", page);
+            logger.debug("showOrdersPage() page: {}", page);
             OrderPage ordPage = ordServ.getPage(page);
             model.addAttribute("orders", ordPage.getOrders());
             model.addAttribute("pagin", ordPage.getPagination());

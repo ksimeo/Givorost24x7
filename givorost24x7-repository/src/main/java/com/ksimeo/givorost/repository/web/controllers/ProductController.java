@@ -7,10 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,14 +25,17 @@ public class ProductController {
     @Autowired
     private ProductDAO prodDao;
 
-    @RequestMapping( value = "prod/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void addProd(ProductDTO prod) {
+    @RequestMapping( value = "product/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+    produces = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseBody
+    public ProductDTO addProd(@RequestBody ProductDTO prod) {
         logger.debug("delProd(): {}", prod);
-        prodDao.saveOrUpdate(prod);
+        return prodDao.saveOrUpdate(prod);
     }
 
 
-    @RequestMapping( value = "prod/getone", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( value = "product/getone/{id}", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ProductDTO getProd(@PathVariable int id) {
         logger.debug("getProd()");
@@ -42,14 +43,17 @@ public class ProductController {
     }
 
 
-    @RequestMapping( value = "prod/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( value = "product/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<ProductDTO> getAllProducts() {
+    public List<ProductDTO> getAllProducts(Model model) {
         logger.debug("getAllProducts()");
+        List<ProductDTO> toSend = prodDao.findAll();
+        model.addAttribute("prods", toSend);
         return prodDao.findAll();
     }
 
-    @RequestMapping( value = "prod/delprod/{id}", method = RequestMethod.GET)
+    @RequestMapping( value = "product/{id}/delete", method = RequestMethod.GET)
+    @ResponseBody
     public void delProduct(@PathVariable int id) {
         logger.debug("delProduct() id={}", id);
         prodDao.dropOne(id);
