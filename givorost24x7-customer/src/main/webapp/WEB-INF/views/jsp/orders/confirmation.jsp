@@ -29,7 +29,7 @@
     <br/>
     <div class="row">
         <label class="col-sm-2">Назва продукту:</label>
-        <div class="col-sm-10">${order.prod.name}</div>
+        <div class="col-sm-10">${order.prodName.name}</div>
     </div>
     <br/>
     <div class="row">

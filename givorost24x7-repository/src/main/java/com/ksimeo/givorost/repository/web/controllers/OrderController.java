@@ -28,8 +28,9 @@ public class OrderController {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    @RequestMapping( value = "orders/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( value = "orders/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE
+            + ";charset=UTF-8",
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     @ResponseBody
     public OrderDTO addOrder(@RequestBody OrderDTO order) throws IOException {
         try {
@@ -80,5 +81,11 @@ public class OrderController {
     public List<OrderDTO> getAllOrders() {
         logger.debug("getAllOrders()");
         return ordDao.findAll();
+    }
+
+    @RequestMapping( value = "string", method = RequestMethod.GET)
+    @ResponseBody
+    public String getString() {
+        return "Иван";
     }
 }

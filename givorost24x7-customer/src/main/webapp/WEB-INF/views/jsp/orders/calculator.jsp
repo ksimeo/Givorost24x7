@@ -58,9 +58,9 @@
         <br/>
         <label>
             <select id="prodType" name="prodType" onchange="changeProdType()" size="1">
-                <option name="prod" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
+                <option name="prodName" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
                 <c:forEach items="${prods}" var="item">
-                    <option name="prod" id="${item.id}" value="${item.coeff}">${item.name}</option>
+                    <option name="prodName" id="${item.id}" value="${item.coeff}">${item.name}</option>
                 </c:forEach>
             </select>
             <input type="number" id="amount" min="1" max="999999" onchange="changeAmount()" required>

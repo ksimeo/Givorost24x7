@@ -35,31 +35,34 @@
 
     <c:choose>
         <c:when test="${orders != null}">
-            <h1>Замовлення що надійшли до останнього моменту</h1>
+            <h1>Замовлення що надійшли на цей момент</h1>
             <br/>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>#ID</th>
                     <th>Дата/час</th>
-                    <th>Номер телефону</th>
                     <th>Ім'я</th>
+                    <th>Номер телефону</th>
+                    <th>Ел.адреса</th>
                     <th>Марка продукту</th>
                     <th>Кількість продукту</th>
                     <th></th>
                 </tr>
                 </thead>
-
                 <c:forEach var="order" items="${orders}">
                     <tr>
                         <td>${order.id}</td>
-                        <td>&nbsp;</td>
-                        <td>${order.tel}</td>
+                        <td>${order.createDate}</td>
                         <td>${order.name}</td>
-                        <td>${order.prod.name}</td>
+                        <td>${order.tel}</td>
+                        <td>${order.email}</td>
+                        <td>${order.prodName}</td>
                         <td>${order.amount}</td>
-                        <td><button class="btn btn-success" onclick="location.href='${orderUrl}'">Прочитано</button>
-                            <button class="btn btn-warning" onclick="location.href='${orderUrl}'">Видалити</button></td>
+                        <td>
+                            <button class="btn btn-success" onclick="location.href='${orderUrl}'">Прочитано</button>
+                            <button class="btn btn-warning" onclick="location.href='${orderUrl}'">Видалити</button>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>

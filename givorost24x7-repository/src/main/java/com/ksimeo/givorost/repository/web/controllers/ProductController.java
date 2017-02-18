@@ -25,8 +25,8 @@ public class ProductController {
     @Autowired
     private ProductDAO prodDao;
 
-    @RequestMapping( value = "product/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
-    produces = MediaType.APPLICATION_JSON_VALUE )
+    @RequestMapping( value = "product/addone", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE
+            + ";charset=UTF-8", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     @ResponseBody
     public ProductDTO addProd(@RequestBody ProductDTO prod) {
         logger.debug("delProd(): {}", prod);
@@ -35,15 +35,16 @@ public class ProductController {
 
 
     @RequestMapping( value = "product/getone/{id}", method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     @ResponseBody
     public ProductDTO getProd(@PathVariable int id) {
-        logger.debug("getProd()");
+        logger.debug("getProdName()");
         return prodDao.findOne(id);
     }
 
 
-    @RequestMapping( value = "product/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( value = "product/getall", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
+            ";charset=UTF-8")
     @ResponseBody
     public List<ProductDTO> getAllProducts(Model model) {
         logger.debug("getAllProducts()");

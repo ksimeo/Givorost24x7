@@ -15,11 +15,21 @@ public class OrderDTO implements Serializable {
     private String name;
     private String tel;
     private String email;
-    private ProductDTO prod;
+    private String prodName;
     private Integer amount;
-
+    private String createDate;
+    private String readDate;
 
     public OrderDTO() {
+    }
+
+    public OrderDTO(Integer id, String name, String tel, String prodName, String readDate, Integer amount) {
+        this.id = id;
+        this.name = name;
+        this.tel = tel;
+        this.prodName = prodName;
+        this.readDate = readDate;
+        this.amount = amount;
     }
 
     public Integer getId() {
@@ -54,12 +64,12 @@ public class OrderDTO implements Serializable {
         this.email = email;
     }
 
-    public ProductDTO getProd() {
-        return prod;
+    public String getProdName() {
+        return prodName;
     }
 
-    public void setProd(ProductDTO prod) {
-        this.prod = prod;
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
     }
 
     public Integer getAmount() {
@@ -70,6 +80,22 @@ public class OrderDTO implements Serializable {
         this.amount = amount;
     }
 
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getReadDate() {
+        return readDate;
+    }
+
+    public void setReadDate(String readDate) {
+        this.readDate = readDate;
+    }
+
     @Override
     public String toString() {
         return "OrderDTO{" +
@@ -77,8 +103,10 @@ public class OrderDTO implements Serializable {
                 ", name='" + name + '\'' +
                 ", tel='" + tel + '\'' +
                 ", email='" + email + '\'' +
-                ", prod=" + prod +
+                ", prodName='" + prodName + '\'' +
                 ", amount=" + amount +
+                ", createDate='" + createDate + '\'' +
+                ", isRead=" + readDate +
                 '}';
     }
 }

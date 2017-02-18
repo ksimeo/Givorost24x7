@@ -52,9 +52,9 @@ public class OrderServMock implements OrderService {
         }
         List<OrderDTO> orders = ordDao.findSeveral(from, to);
 //        int rowCount = ordDao.getCount();
-        int pageCount = PagesHelper.getPageCount(14, rowMaxCountOnPage);
+        int pageCount = PagesHelper.getPageCount(14);
         List<String> pagin = PagesHelper.getPagination(pageNumb, pageCount, rowMaxCountOnPage);
-        return new OrderPage(orders, pageCount, isLastPage, pagin);
+        return new OrderPage(orders, pageCount, pagin);
     }
 
     @Override

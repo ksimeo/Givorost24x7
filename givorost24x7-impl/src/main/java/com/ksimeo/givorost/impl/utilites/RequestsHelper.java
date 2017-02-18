@@ -36,9 +36,10 @@ public class RequestsHelper {
     public static String sendPost(String url, String data) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        data = new String(data.getBytes("utf-8"), "ISO-8859-1");
+        con.setRequestProperty("Accept-Charset", "utf-8");
+//        data = new String(data.getBytes("utf-8"), "ISO-8859-1");
         con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json;");
+        con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
         con.setDoOutput(true);
         DataOutputStream wr = new DataOutputStream(con.getOutputStream());
         wr.writeBytes(data);

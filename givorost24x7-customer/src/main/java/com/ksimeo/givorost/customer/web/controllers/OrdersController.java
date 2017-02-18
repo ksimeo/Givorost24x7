@@ -63,14 +63,15 @@ public class OrdersController {
     }
 
     @RequestMapping( value = "/order", method = RequestMethod.POST)
-    private String showConfirmation(@ModelAttribute("orderForm") OrderDTO order ,Model model, HttpServletRequest req, HttpServletResponse resp) {
+    private String showConfirmation(@ModelAttribute("orderForm") OrderDTO order ,Model model, HttpServletRequest req,
+                                    HttpServletResponse resp) {
         logger.debug("showConfirmation()");
         model.addAttribute("title", "Здійснення замовлення");
         try {
             String prodId = req.getParameter("product");
             int id = Integer.parseInt(prodId);
             ProductDTO prod = prodServ.getOne(id);
-            order.setProd(prod);
+            order.setProdName(prod.getName());
             order = ordServ.addOne(order);
             Cookie userTel = new Cookie("tel", order.getTel());
             resp.addCookie(userTel);

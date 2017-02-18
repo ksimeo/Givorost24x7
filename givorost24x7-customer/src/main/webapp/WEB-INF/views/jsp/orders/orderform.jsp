@@ -65,8 +65,8 @@
         <div class="form-group" >
             <label class="col-sm-2 control-label">Марка продукту:</label>
             <div class="col-sm-10">
-                <select id="prod" name="product" size="1" onchange="changeProd()">
-                    <option name="prod" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
+                <select id="prodName" name="product" size="1" onchange="changeProd()">
+                    <option name="prodName" id="prod0" value="NaN">-Виберіть-тип-продукту-</option>
                     <c:forEach items="${prods}" var="item">
                         <option name="type" value="${item.id}" ${item.id == prodType ? 'selected="selected"' : ''}>
                                 ${item.name}</option>

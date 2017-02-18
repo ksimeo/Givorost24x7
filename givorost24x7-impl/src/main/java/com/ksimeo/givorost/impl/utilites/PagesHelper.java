@@ -1,5 +1,8 @@
 package com.ksimeo.givorost.impl.utilites;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,73 +13,57 @@ import java.util.List;
  */
 public class PagesHelper {
 
-    public static PageInfo getRowNumbers(int pageNumb, int numb, int rowCount) {
-        int from;
-        int to;
-        boolean isLastPage = false;
-//        int numb = ordDao.getCount();
-        int maxFullPage = numb / rowCount;
-        if (pageNumb > maxFullPage) {
-            pageNumb = maxFullPage;
-            isLastPage = true;
-        }
-        if (pageNumb > 0) {
-            to = numb - ((pageNumb - 1) * rowCount);
-            from = to - (rowCount - 1);
-        } else {
-            pageNumb = 1;
-            to = numb - ((pageNumb - 1) * rowCount);
-            from = to - (rowCount - 1);
-        }
-        return new PagesHelper().new PageInfo(from, to, isLastPage);
+    public final static int maxRowsCountOnPage = 5;
+
+
+    public static PageInfo getRowNumbers(int pageNumb, int rowsCount) {
+
+        System.out.println("rowCount: " + rowsCount);
+        if (rowsCount < 1) throw new IllegalArgumentException("Illegal statement of variable \"rowsCount\"!");
+        int maxPageNumb = getPageCount(rowsCount);
+        System.out.println("pageNumb: " + pageNumb);
+        System.out.println("maxPageNumb: " + maxPageNumb);
+        if (pageNumb < 1 || pageNumb > maxPageNumb)
+            throw new IllegalArgumentException("Illegal statement of variable \"pageNumb\"!");
+        int maxPos = rowsCount - ((pageNumb - 1)* maxRowsCountOnPage);
+        int minPos = maxPos - (maxRowsCountOnPage - 1);
+        if (maxPos > rowsCount) maxPos = rowsCount;
+        if (minPos > rowsCount) minPos = rowsCount;
+        if (minPos < 1) minPos = 1;
+        boolean isLastPage = (pageNumb == maxPageNumb);
+
+        return new PagesHelper().new PageInfo(minPos, maxPos, isLastPage);
     }
 
-    public static int getPageCount(int count, int maxRowsNumber) {
+    public static int getPageCount(int count) {
 
-        int pageNumb = count / maxRowsNumber;
-        if (count % maxRowsNumber != 0) pageNumb++;
+        int pageNumb = count / maxRowsCountOnPage;
+        if (count % maxRowsCountOnPage != 0) pageNumb++;
         return pageNumb;
     }
 
-    public static List<String> getPagination(int currPageNumb, int pagesCount, int maxPagesOnPage) {
+    public static List<String> getPagination(int currPage, int pageCount, int maxShowedNumbOnPages) {
+        if (currPage < 1 || currPage > pageCount) throw new IllegalArgumentException("state of variable currPage is " +
+                "illegal!");
+        if (pageCount < 1) throw new IllegalArgumentException("state of variable pageCount is illegal!");
+        if (maxShowedNumbOnPages <= 1) throw new IllegalArgumentException("state of variable maxShowedNumbOnPages is " +
+                "illegal!");
 
-        final int approachToBondsCoeff = 4;
-        int minPageNumb = currPageNumb - (pagesCount - approachToBondsCoeff);
-        int maxPageNumb = currPageNumb + approachToBondsCoeff;
+        int maxPageNumb = currPage + 4;
+        int minPageNumb = currPage - 5;
 
-        int topDelta = maxPageNumb - currPageNumb;
+            if (minPageNumb < 1) {
+                minPageNumb = 1;
+                maxPageNumb = maxShowedNumbOnPages;
+            }
+            if (maxPageNumb > pageCount) {
+                maxPageNumb = pageCount;
+                if (maxPageNumb - minPageNumb < maxShowedNumbOnPages) {
+                    minPageNumb = maxPageNumb - (maxShowedNumbOnPages - 1);
+                    if (minPageNumb < 1) minPageNumb = 1;
+                }
+            }
 
-        if (topDelta < approachToBondsCoeff) maxPageNumb = currPageNumb + approachToBondsCoeff;
-
-        if (maxPageNumb - minPageNumb > maxPagesOnPage) {
-            minPageNumb = maxPageNumb - maxPagesOnPage;
-        }
-
-//        if (maxPageNumb > pagesCount) {
-//            maxPageNumb = pagesCount;
-//        }
-
-//        if (maxPageNumb - minPageNumb < maxPagesOnPage + 1) {
-//            minPageNumb = maxPageNumb - (maxPagesOnPage - 1);
-//        }
-//
-//        if (minPageNumb < 1) {
-//            minPageNumb = 1;
-//            maxPageNumb = minPageNumb + (maxPagesOnPage - 1);
-//        }
-
-        if (maxPageNumb > pagesCount) {
-            maxPageNumb = pagesCount;
-        }
-
-        if (maxPageNumb - minPageNumb < maxPagesOnPage + 1) {
-            minPageNumb = maxPageNumb - (maxPagesOnPage - 1);
-        }
-
-        if (minPageNumb < 1) {
-            minPageNumb = 1;
-            maxPageNumb = minPageNumb + (maxPagesOnPage - 1);
-        }
 
         List<String> toSend = new ArrayList<>(maxPageNumb - minPageNumb);
 
@@ -100,7 +87,37 @@ public class PagesHelper {
 
     public static void main(String[] args) {
 
-        List<String> arrays = PagesHelper.getPagination(7, 14, 10);
-        System.out.println(arrays);
+        java.sql.Date date = new Date(System.currentTimeMillis());
+        DateFormat dateFormat = new SimpleDateFormat("MM.dd.yy HH:mm:ss");
+        String date2 = dateFormat.format(date);
+        System.out.println(date2);
+
+//        Calendar calendar = new GregorianCalendar();
+//        System.out.println(calendar);
+//        DateFormat dateFormat = new SimpleDateFormat("MM.dd.yy HH:mm:ss");
+//        String date = dateFormat.format(calendar);
+//
+//        LocalDateTime cal = LocalDateTime.parse(date);
+//        Calendar cal1 = Calendar.getInstance();
+//        dateFormat.getCalendar();
+//
+//
+//        try {
+//            Date date1 = dateFormat.parse(date);
+//        } catch (Exception e) {
+//
+//        }
+//
+//        Calendar calendar1 = new GregorianCalendar();
+//
+//        System.out.println(date);
+
+
+
+
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yy/HH:mm");
+//        String data = localDateTime.format(format);
+//        System.out.println(data);
     }
 }

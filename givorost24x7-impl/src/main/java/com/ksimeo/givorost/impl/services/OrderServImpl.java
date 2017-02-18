@@ -48,19 +48,25 @@ public class OrderServImpl implements OrderService {
     @Override
     public OrderPage getPage(int pageNumb) throws Exception {
         int numb = ordDao.getCount();
-        PagesHelper.PageInfo pageInfo = PagesHelper.getRowNumbers(pageNumb, numb, rowCount);
+        PagesHelper.PageInfo pageInfo = PagesHelper.getRowNumbers(pageNumb, numb);
         int from = pageInfo.from;
         int to = pageInfo.to;
-        boolean isLastPage = pageInfo.isLast;
-        int maxFullPage = PagesHelper.getPageCount(numb, rowCount);
+        int maxFullPage = PagesHelper.getPageCount(numb);
         URI = RepoServerConfig.URL + "getorders/" + from + "/" + to;
+        System.out.println("URI: " + URI);
         echoData = RequestsHelper.sendGet(URI);
+//        echoData = CharsetHelper.correct(echoData);
         List<OrderDTO> toSend = mapper.readValue(echoData, new TypeReference<List<OrderDTO>>() { });
         URI = RepoServerConfig.URL + "orders/getcount";
         echoData = RequestsHelper.sendGet(URI);
         int count = Integer.parseInt(echoData);
-        List<String> pagination = PagesHelper.getPagination(pageNumb, count, maxPagesPaginNumb);
-        return new OrderPage(toSend, maxFullPage, isLastPage, pagination);
+        int pagesNumb = PagesHelper.getPageCount(count);
+        System.out.println("pageNumb: " + pageNumb);
+        System.out.println("count: " + count);
+        System.out.println("maxPagesPaginNumb: " + maxPagesPaginNumb);
+        List<String> pagination = PagesHelper.getPagination(pageNumb, pagesNumb, maxPagesPaginNumb);
+        System.out.println("Pagination: " + pagination);
+        return new OrderPage(toSend, maxFullPage, pagination);
     }
 
     @Override

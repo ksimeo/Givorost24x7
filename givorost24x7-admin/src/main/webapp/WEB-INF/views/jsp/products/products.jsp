@@ -40,14 +40,14 @@
         </tr>
         </thead>
 
-        <c:forEach var="prod" items="${prods}">
+        <c:forEach var="prodName" items="${prods}">
             <tr>
-                <td>${prod.id}</td>
-                <td>${prod.name}</td>
-                <td>${prod.coeff}</td>
-                <td>${prod.price}</td>
-                <td><button class="btn btn-info" onclick="location.href='products/change/${prod.id}'">Змінити</button>
-                    <button class="btn btn-warning" onclick="location.href='products/delete/${prod.id}'">Видалити
+                <td>${prodName.id}</td>
+                <td>${prodName.name}</td>
+                <td>${prodName.coeff}</td>
+                <td>${prodName.price}</td>
+                <td><button class="btn btn-info" onclick="location.href='products/change/${prodName.id}'">Змінити</button>
+                    <button class="btn btn-warning" onclick="location.href='products/delete/${prodName.id}'">Видалити
                     </button></td>
             </tr>
         </c:forEach>

@@ -13,16 +13,14 @@ public class OrderPage {
 
     private List<OrderDTO> orders;
     private int pageNumb;
-    private boolean isLast;
     private List<String> pagination;
 
     public OrderPage() {
     }
 
-    public OrderPage(List<OrderDTO> orders, int pageNumb, boolean isLast, List<String> pagination) {
+    public OrderPage(List<OrderDTO> orders, int pageNumb, List<String> pagination) {
         this.orders = orders;
         this.pageNumb = pageNumb;
-        this.isLast = isLast;
         this.pagination = pagination;
     }
 
@@ -40,14 +38,6 @@ public class OrderPage {
 
     public void setPageNumb(int pageNumb) {
         this.pageNumb = pageNumb;
-    }
-
-    public boolean isLast() {
-        return isLast;
-    }
-
-    public void setIsLast(boolean isLast) {
-        this.isLast = isLast;
     }
 
     public List<String> getPagination() {

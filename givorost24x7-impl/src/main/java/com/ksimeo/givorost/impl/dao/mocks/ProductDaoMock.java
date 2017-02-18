@@ -19,16 +19,14 @@ public class ProductDaoMock implements ProductDAO {
 
     public ProductDaoMock() {
         products = new ArrayList<>(5);
-        products.add(new ProductDTO(1, "Продукт 1", 1.99f, 2.43f));
-        products.add(new ProductDTO(2, "Продукт 2", 0.97f, 0.99f));
-        products.add(new ProductDTO(3, "Продукт 3", 1.27f, 0.75f));
+        products.add(new ProductDTO(1, "Біогумат для відкритого грунту", 0.1f, 0.0f));
+        products.add(new ProductDTO(2, "Біогумат для закритого грунту", 0.25f, 0.0f));
     }
 
     @Override
     public ProductDTO saveOrUpdate(ProductDTO prod) {
         if (prod.getId() != null) {
             dropOne(prod.getId());
-//            products.remove(prod.getId() - 1);
             products.add(prod.getId() - 1, prod);
         } else {
             products.add(prod);
