@@ -18,17 +18,71 @@ public class CharsetHelper {
         return new String(bytes);
     }
 
-    public static void main(String[] args) {
-        try {
-            String URI = RepoServerConfig.URL + "string";
-            String echo = RequestsHelper.sendGet(URI);
-            byte[] bytes1 = echo.getBytes();
+    public static String correctI(String str) {
+        return str.replace("�?", "И");
+    }
 
-            System.out.print(echo);
-            for (byte b1  : bytes1) {
-//                byte[] b = str2.getBytes();
+    public static String cp1251toUTF_8(String str) {
+        try {
+            return new String(str.getBytes("cp1251"), "UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String UTF_8toISO_8859_1(String str) {
+        try {
+            return new String(str.getBytes("UTF-8"), "ISO-8859-1");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+//        try {
+//            String URI = RepoServerConfig.URL + "string";
+//            String echo = RequestsHelper.sendGet(URI);
+//            byte[] bytes1 = echo.getBytes();
+//
+//            System.out.print(echo);
+//            for (byte b1  : bytes1) {
+////                byte[] b = str2.getBytes();
+//                System.out.println(b1);
+//            }
+
+        try {
+//            File file1 = new File("D:\\test\\output1.txt");
+//            File file2 = new File("D:\\test\\output2.txt");
+//            file1.createNewFile();
+//            file2.createNewFile();
+
+//            OutputStream os1 = new FileOutputStream("D:\\test\\output1.txt");
+//            OutputStream os2 = new FileOutputStream("D:\\test\\output2.txt");
+//
+            String str = RequestsHelper.sendGet(RepoServerConfig.URL + "string");
+            for (byte b : str.getBytes()) {
+                System.out.println(b);
+            }
+                     System.out.println(" ");
+            String str1 = "Иван";
+
+            for (byte b1 : str1.getBytes()) {
                 System.out.println(b1);
             }
+//            os1.write(str.getBytes());
+//            os2.write("\"И\r\nв\r\nа\r\nн\"".getBytes());
+//            os1.flush();
+//            os1.close();
+//            os2.flush();
+//            os2.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//            OutputStream os = new FileOutputStream();
 //            ObjectMapper om = new ObjectMapper();
 //            List<String> echoString = om.readValue(echo, new TypeReference<List<String>>(){});
 //            echoString.
@@ -51,17 +105,17 @@ public class CharsetHelper {
             // н:    -48 -67
 
 
-            byte[] b2 = {-104};
-
-            System.out.print("\r\n");
-
-            String str = "н";
-
-            byte[] bytes = str.getBytes();
-
-            for (byte b : bytes) {
-                System.out.println(b);
-            }
+//            byte[] b2 = {-104};
+//
+//            System.out.print("\r\n");
+//
+//            String str = "н";
+//
+//            byte[] bytes = str.getBytes();
+//
+//            for (byte b : bytes) {
+//                System.out.println(b);
+//            }
 
 
 
@@ -89,9 +143,9 @@ public class CharsetHelper {
 //            for (byte byte2 : bytes2) {
 //                System.out.print(" " + byte2);
 //            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 }

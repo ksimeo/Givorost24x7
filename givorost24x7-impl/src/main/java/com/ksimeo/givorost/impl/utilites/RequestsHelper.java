@@ -6,6 +6,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static com.ksimeo.givorost.impl.utilites.CharsetHelper.UTF_8toISO_8859_1;
+import static com.ksimeo.givorost.impl.utilites.CharsetHelper.cp1251toUTF_8;
+import static com.ksimeo.givorost.impl.utilites.CharsetHelper.correctI;
+
 /**
  * @author Ksimeo. Created on 22.01.2017 at 19:07 for "web-store-market" project.
  * @version 1.0
@@ -29,14 +33,17 @@ public class RequestsHelper {
             response.append(inputLine);
         }
         in.close();
-        return new String(response.toString().getBytes("cp1251"), "utf-8");
+        String str = cp1251toUTF_8(response.toString());
+        str = correctI(str);
+        return str;
     }
 
     // HTTP POST request
     public static String sendPost(String url, String data) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        con.setRequestProperty("Accept-Charset", "utf-8");
+//        con.setRequestProperty("Accept-Charset", "utf-8");
+        data = UTF_8toISO_8859_1(data);
 //        data = new String(data.getBytes("utf-8"), "ISO-8859-1");
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
@@ -55,6 +62,6 @@ public class RequestsHelper {
             response.append(inputLine);
         }
         in.close();
-        return new String(response.toString().getBytes("cp1251"), "utf-8");
+        return cp1251toUTF_8(response.toString());
     }
 }
