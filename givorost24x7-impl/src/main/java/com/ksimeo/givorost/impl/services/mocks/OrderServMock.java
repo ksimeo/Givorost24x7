@@ -4,9 +4,11 @@ import com.ksimeo.givorost.api.dao.OrderDAO;
 import com.ksimeo.givorost.api.services.OrderService;
 import com.ksimeo.givorost.core.dto.OrderDTO;
 import com.ksimeo.givorost.core.parcels.OrderPage;
+import com.ksimeo.givorost.core.utilities.DatesHelper;
 import com.ksimeo.givorost.impl.utilites.PagesHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -63,7 +65,7 @@ public class OrderServMock implements OrderService {
     }
 
     @Override
-    public OrderDTO addOne(OrderDTO order) {
+    public Integer addOne(OrderDTO order) {
         return ordDao.saveOrUpdate(order);
     }
 
@@ -75,5 +77,11 @@ public class OrderServMock implements OrderService {
     @Override
     public void dropAll() {
         ordDao.dropAll();
+    }
+
+    @Override
+    public void markAsReaded(int id) throws Exception {
+        OrderDTO ord = ordDao.findOne(id);
+        ord.setReadDate(DatesHelper.format(new Date()));
     }
 }

@@ -19,17 +19,13 @@ public class OrderConverter {
 
         toSend.setId(orderDto.getId());
 
-        if (orderDto.getName().equals("не вказано")) toSend.setName(null);
-        else toSend.setName(orderDto.getName());
+        toSend.setName(orderDto.getName());
 
-        if (orderDto.getTel().equals("не вказано")) toSend.setTel(null);
-        else toSend.setTel(orderDto.getTel());
+        toSend.setTel(orderDto.getTel());
 
-        if (orderDto.getEmail().equals("не вказано")) toSend.setEmail(orderDto.getEmail());
-        else toSend.setEmail(orderDto.getEmail());
+        toSend.setEmail(orderDto.getEmail());
 
-        if (orderDto.getProdName().equals("не вказано")) toSend.setProd(null);
-        else toSend.setProd(orderDto.getProdName());
+        toSend.setProd(orderDto.getProdName());
 
         toSend.setAmount(orderDto.getAmount());
 
@@ -43,17 +39,13 @@ public class OrderConverter {
         OrderDTO toSend = new OrderDTO();
         toSend.setId(order.getId());
 
-        if (order.getName() != null) toSend.setName(order.getName());
-        else toSend.setName("не вказано");
+        toSend.setName(order.getName());
 
-        if (order.getTel() != null) toSend.setTel(order.getTel());
-        else toSend.setTel("не вказано");
+        toSend.setTel(order.getTel());
 
-        if (order.getEmail() != null) toSend.setEmail(order.getEmail());
-        else toSend.setEmail("не вказано");
+        toSend.setEmail(order.getEmail());
 
-        if (order.getProd() != null) toSend.setProdName(order.getProd());
-        else toSend.setProdName("не вказано");
+        toSend.setProdName(order.getProd());
 
         toSend.setAmount(order.getAmount());
 

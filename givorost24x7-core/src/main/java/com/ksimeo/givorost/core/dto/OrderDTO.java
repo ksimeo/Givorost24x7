@@ -1,6 +1,7 @@
 package com.ksimeo.givorost.core.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author Ksimeo. Created on 22.01.2017 at 20:56 for "web-store-market" project.
@@ -28,6 +29,16 @@ public class OrderDTO implements Serializable {
         this.name = name;
         this.tel = tel;
         this.prodName = prodName;
+        this.createDate = new Date().toString();
+        this.readDate = readDate;
+        this.amount = amount;
+    }
+
+    public OrderDTO(String name, String tel, String prodName, String readDate, Integer amount) {
+        this.name = name;
+        this.tel = tel;
+        this.prodName = prodName;
+        this.createDate = new Date().toString();
         this.readDate = readDate;
         this.amount = amount;
     }
@@ -106,7 +117,7 @@ public class OrderDTO implements Serializable {
                 ", prodName='" + prodName + '\'' +
                 ", amount=" + amount +
                 ", createDate='" + createDate + '\'' +
-                ", isRead=" + readDate +
+                ", readDate=" + readDate +
                 '}';
     }
 }

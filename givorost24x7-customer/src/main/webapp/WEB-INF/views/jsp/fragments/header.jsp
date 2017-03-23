@@ -289,7 +289,7 @@
                                 <a href="../contacts">Контакти</a>
                             </li>
                             <li class="parent">
-                                <a href="calc" class="active">&nbsp; &nbsp; &nbsp; &nbsp; Розрахувати</a>
+                                <a href="../calc" class="active">&nbsp; &nbsp; &nbsp; &nbsp; Розрахувати</a>
                             </li>
                             <li class="parent">
                                 <a href="order/0/0" class="active">Замовити</a>

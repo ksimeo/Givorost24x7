@@ -28,7 +28,7 @@ public class UserDaoMock implements UserDAO {
 
     @Override
     public UserDTO findOne(int id) {
-        return null;
+        return users.get(id - 1);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class UserDaoMock implements UserDAO {
         else return null;
     }
 
-
+    @Override
     public List<UserDTO> findAll() {
         return users;
     }

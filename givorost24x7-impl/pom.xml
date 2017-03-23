@@ -22,7 +22,7 @@
 	</properties>
 
 	<dependencies>
-		<!--S p r i n g  f r a m e w o r k s-->
+		<!--S p r i n g  f r a m e w o r k-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -33,6 +33,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.3.4.RELEASE</version>
+        </dependency>
 		<!--T e s t i n g-->
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,27 +46,32 @@
 			<scope>test</scope>
 		</dependency>
 		<!--D B-->
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>${hsqldb.version}</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.hsqldb</groupId>-->
+			<!--<artifactId>hsqldb</artifactId>-->
+			<!--<version>${hsqldb.version}</version>-->
+		<!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+            <!--<version>5.1.31</version>-->
+        <!--</dependency>-->
 		<!--Hibernate-->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate-validator.version}</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate</groupId>-->
+			<!--<artifactId>hibernate-core</artifactId>-->
+			<!--<version>${hibernate.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate</groupId>-->
+			<!--<artifactId>hibernate-entitymanager</artifactId>-->
+			<!--<version>${hibernate.version}</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate</groupId>-->
+			<!--<artifactId>hibernate-validator</artifactId>-->
+			<!--<version>${hibernate-validator.version}</version>-->
+		<!--</dependency>-->
 		<!--U t i l i t e s-->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -75,10 +85,15 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.ksimeo.givorost.api</groupId>
-			<artifactId>givorost24x7-api</artifactId>
-			<version>1.0</version>
-		</dependency>
+		<groupId>com.ksimeo.givorost.api</groupId>
+		<artifactId>givorost24x7-api</artifactId>
+		<version>1.0</version>
+	</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.ksimeo.givorost.repository</groupId>-->
+			<!--<artifactId>givorost24x7-repository</artifactId>-->
+			<!--<version>1.0</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 	<build>

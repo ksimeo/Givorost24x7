@@ -55,17 +55,12 @@ public class OrderServImpl implements OrderService {
         URI = RepoServerConfig.URL + "getorders/" + from + "/" + to;
         System.out.println("URI: " + URI);
         echoData = RequestsHelper.sendGet(URI);
-//        echoData = CharsetHelper.correct(echoData);
         List<OrderDTO> toSend = mapper.readValue(echoData, new TypeReference<List<OrderDTO>>() { });
         URI = RepoServerConfig.URL + "orders/getcount";
         echoData = RequestsHelper.sendGet(URI);
         int count = Integer.parseInt(echoData);
         int pagesNumb = PagesHelper.getPageCount(count);
-        System.out.println("pageNumb: " + pageNumb);
-        System.out.println("count: " + count);
-        System.out.println("maxPagesPaginNumb: " + maxPagesPaginNumb);
         List<String> pagination = PagesHelper.getPagination(pageNumb, pagesNumb, maxPagesPaginNumb);
-        System.out.println("Pagination: " + pagination);
         return new OrderPage(toSend, maxFullPage, pagination);
     }
 
@@ -77,13 +72,17 @@ public class OrderServImpl implements OrderService {
     }
 
     @Override
-    public OrderDTO addOne(OrderDTO order) throws Exception {
-        System.err.println("Отправляемый объект: " + order);
+    public Integer addOne(OrderDTO order) throws Exception {
         URI = RepoServerConfig.URL + "orders/addone";
         String data = mapper.writeValueAsString(order);
-        System.err.println("Отправляемые данные: " + data);
         echoData = RequestsHelper.sendPost(URI, data);
-        return mapper.readValue(echoData, OrderDTO.class);
+        return mapper.readValue(echoData, OrderDTO.class).getId();
+    }
+
+    @Override
+    public void markAsReaded(int id) throws Exception {
+        URI = RepoServerConfig.URL + "order/" + id + "/markasreaded";
+        RequestsHelper.sendGet(URI);
     }
 
     @Override

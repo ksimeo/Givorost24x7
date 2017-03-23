@@ -10,6 +10,25 @@
 
 <jsp:include page="../fragments/header.jsp" />
 
+<script type="application/javascript" >
+    function ajaxDoReader(orderId) {
+        $.ajax({
+            type:'GET',
+            url:'/orders/read/' + orderId,
+            success: function(servletResult) {
+                console.log("Date:" + servletResult.date + "State:" + servletResult.state);
+                document.getElementById('orderRead-' + orderId).innerHTML = "<h6>Переглянуто: " + servletResult.date + "</h6>";
+                document.getElementById("orderRead-" + orderId).style.display = "true";
+                document.getElementById('state-' + orderId).innerHTML = servletResult.state;
+//                document.getElementById('order-' + orderId).style.color = "gray !important";
+            },
+            error: function() {
+                console.log('error');
+            }
+        });
+    }
+</script>
+
 <body>
 <div class="container">
 
@@ -48,22 +67,90 @@
                     <th>Марка продукту</th>
                     <th>Кількість продукту</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <c:forEach var="order" items="${orders}">
-                    <tr>
+                    <div>
+                    <tr id="order-${order.id}" ${order.readDate == null ? " " : "style = \'color: grey !important;\'"}>
                         <td>${order.id}</td>
-                        <td>${order.createDate}</td>
-                        <td>${order.name}</td>
-                        <td>${order.tel}</td>
-                        <td>${order.email}</td>
-                        <td>${order.prodName}</td>
-                        <td>${order.amount}</td>
                         <td>
-                            <button class="btn btn-success" onclick="location.href='${orderUrl}'">Прочитано</button>
-                            <button class="btn btn-warning" onclick="location.href='${orderUrl}'">Видалити</button>
+                            <div>
+                                <c:if test="${not empty order.createDate}">
+                                    ${order.createDate}
+                                </c:if>
+                                <c:if test="${empty order.createDate}">
+                                    <h6><i>Не вказано</i></h6>
+                                </c:if>
+                            </div>
+                        <td>
+                        <div>
+                            <c:if test="${not empty order.name}">
+                                ${order.name}
+                            </c:if>
+                            <c:if test="${empty order.name}">
+                                <h6><i>Не вказано</i></h6>
+                            </c:if>
+                        </div>
+                        <td>
+                        <div>
+                            <c:if test="${not empty order.tel}">
+                                ${order.tel}
+                            </c:if>
+                            <c:if test="${empty order.tel}">
+                                <h6><i>Не вказано</i></h6>
+                            </c:if>
+                        </div>
+                    </td>
+                        <td>
+                            <div>
+                                <c:if test="${not empty order.email}">
+                                    ${order.email}
+                                </c:if>
+                                <c:if test="${empty order.email}">
+                                    <h6><i>Не вказано</i></h6>
+                                </c:if>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <c:if test="${not empty order.prodName}">
+                                    ${order.prodName}
+                                </c:if>
+                                <c:if test="${empty order.prodName}">
+                                    <h6><i>Не вказано</i></h6>
+                                </c:if>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <c:if test="${not empty order.amount}">
+                                    ${order.amount}
+                                </c:if>
+                                <c:if test="${empty order.amount}">
+                                    <h6><i>Не вказано</i></h6>
+                                </c:if>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="orderRead-${order.id}">
+                                <c:if test="${empty order.readDate}">
+                                    <input id = "orderId-${order.id}" class="btn btn-success" type="button"
+                                           value="Переглянуто" onclick="ajaxDoReader(${order.id})"/>
+                                </c:if>
+                                <c:if test="${not empty order.readDate}">
+                                    Переглянуто:&nbsp;${order.readDate}
+                                </c:if>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-warning"
+                                    onclick="document.location='/orders/delete/${order.id}/${page}'">
+                                Видалити
+                            </button>
                         </td>
                     </tr>
+                    </div>
                 </c:forEach>
             </table>
 

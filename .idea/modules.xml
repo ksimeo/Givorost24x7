@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/givorost24x7-customer/givorost24x7-customer.iml" filepath="$PROJECT_DIR$/givorost24x7-customer/givorost24x7-customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/givorost24x7-impl/givorost24x7-impl.iml" filepath="$PROJECT_DIR$/givorost24x7-impl/givorost24x7-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/givorost24x7-repository/givorost24x7-repository.iml" filepath="$PROJECT_DIR$/givorost24x7-repository/givorost24x7-repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/givorost24x7-repository2/givorost24x7-repository (1).iml" filepath="$PROJECT_DIR$/givorost24x7-repository2/givorost24x7-repository (1).iml" />
     </modules>
   </component>
 </project>

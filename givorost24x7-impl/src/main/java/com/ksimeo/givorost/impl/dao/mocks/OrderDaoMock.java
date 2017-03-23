@@ -49,12 +49,20 @@ public class OrderDaoMock implements OrderDAO {
         ordStorage.add(new Order(22, "Лиля Прудченко", "0503456789", prod2.getName(), 6));
     }
 
+
     @Override
-    public OrderDTO saveOrUpdate(OrderDTO ordDto) {
+    public Integer saveOrUpdate(OrderDTO ordDto) {
         Order order = OrderConverter.convert(ordDto);
-        ordStorage.add(order);
-        order.setId(ordStorage.indexOf(order) + 1);
-        return OrderConverter.convert(order);
+        if (ordDto.getId() == null) {
+            ordStorage.add(order);
+            order.setId(ordStorage.indexOf(order) + 1);
+            return ordStorage.indexOf(order);
+        } else {
+            int pos = ordDto.getId() - 1;
+            ordStorage.remove(pos);
+            ordStorage.add(pos, order);
+            return ordStorage.get(pos).getId();
+        }
     }
 
     @Override
@@ -94,7 +102,7 @@ public class OrderDaoMock implements OrderDAO {
 
     @Override
     public void dropOne(int id) {
-        ordStorage.remove(id);
+        ordStorage.remove(id - 1);
     }
 
     @Override

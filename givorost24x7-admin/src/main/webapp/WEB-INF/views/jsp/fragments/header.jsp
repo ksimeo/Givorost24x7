@@ -5,6 +5,7 @@
 <head>
     <title>Живорост24x7</title>
     <link href="../../../../resources/core/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../../../resources/core/js/admin.js"></script>
     <spring:url value="/resources/core/css/hello.css" var="coreCss" />
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
     <link href="${bootstrapCss}" rel="stylesheet" />

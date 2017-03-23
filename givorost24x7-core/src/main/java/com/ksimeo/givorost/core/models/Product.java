@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
     @Column
     private String name;
     @Column
@@ -37,6 +37,13 @@ public class Product {
         this.price = price;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

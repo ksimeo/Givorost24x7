@@ -24,7 +24,7 @@ public class ProductDaoMock implements ProductDAO {
     }
 
     @Override
-    public ProductDTO saveOrUpdate(ProductDTO prod) {
+    public int saveOrUpdate(ProductDTO prod) {
         if (prod.getId() != null) {
             dropOne(prod.getId());
             products.add(prod.getId() - 1, prod);
@@ -32,7 +32,7 @@ public class ProductDaoMock implements ProductDAO {
             products.add(prod);
             prod.setId(products.indexOf(prod) + 1);
         }
-        return prod;
+        return prod.getId()+1;
     }
 
     @Override

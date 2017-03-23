@@ -13,8 +13,8 @@ import java.util.List;
 public class ProductDaoImpl implements ProductDAO {
 
     @Override
-    public ProductDTO saveOrUpdate(ProductDTO prod) {
-        return null;
+    public int saveOrUpdate(ProductDTO prod) {
+        return 0;
     }
 
     @Override

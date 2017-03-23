@@ -72,7 +72,8 @@ public class OrdersController {
             int id = Integer.parseInt(prodId);
             ProductDTO prod = prodServ.getOne(id);
             order.setProdName(prod.getName());
-            order = ordServ.addOne(order);
+            int orderId = ordServ.addOne(order);
+            order = ordServ.getOne(orderId);
             Cookie userTel = new Cookie("tel", order.getTel());
             resp.addCookie(userTel);
             model.addAttribute("order", order);

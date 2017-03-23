@@ -22,42 +22,43 @@
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-impl" />
       </profile>
       <profile default="false" name="Annotation profile for givorost24x7-core" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-core" />
       </profile>
       <profile default="false" name="Annotation profile for givorost24x7-repository" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-repository" />
       </profile>
       <profile default="false" name="Annotation profile for givorost24x7-customer" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-customer" />
       </profile>
       <profile default="false" name="Annotation profile for givorost24x7-admin" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-admin" />
       </profile>
       <profile default="false" name="Annotation profile for givorost24x7-api" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="givorost24x7-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for givorost24x7-repository (1)" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="givorost24x7-repository (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -68,6 +69,7 @@
       <module name="givorost24x7-customer" target="1.8" />
       <module name="givorost24x7-impl" target="1.8" />
       <module name="givorost24x7-repository" target="1.8" />
+      <module name="givorost24x7-repository (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

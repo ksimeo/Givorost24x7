@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface OrderDAO {
 
-    OrderDTO saveOrUpdate(OrderDTO order);
+    Integer saveOrUpdate(OrderDTO order);
     OrderDTO findOne(int id);
     List<OrderDTO> findSeveral(int from, int to);
     List<OrderDTO> findAll();

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface ProductDAO {
 
-    ProductDTO saveOrUpdate(ProductDTO prod);
+    int saveOrUpdate(ProductDTO prod);
     ProductDTO findOne(int id);
     List<ProductDTO> findAll();
     void dropOne(int id);

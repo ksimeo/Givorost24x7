@@ -69,6 +69,11 @@
 			<version>${servletapi.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.3.25</version>
+		</dependency>
 		<!--L o g g i n g-->
 		<dependency>
 			<groupId>org.slf4j</groupId>

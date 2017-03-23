@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * @author Ksimeo. Created on 17.02.17 at 19:58 for "givorost24x7" project.
@@ -12,7 +13,7 @@ import java.util.Date;
  */
 public class DatesHelper {
 
-    public static final SimpleDateFormat fmt = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
+    public static final SimpleDateFormat fmt = new SimpleDateFormat("dd.MM.yy HH:mm");
 
     public static String format(Calendar calendar) {
         fmt.setCalendar(calendar);
@@ -20,7 +21,7 @@ public class DatesHelper {
     }
 
     public static String format(Date date) {
-        return date.toString();
+        return fmt.format(date);
     }
 
     public static String format(java.sql.Date date) {
@@ -29,6 +30,13 @@ public class DatesHelper {
 
     public static Calendar parseToCalendar(String date) {
         return fmt.getCalendar();
+    }
+
+    public static Calendar parseToCalendar(java.sql.Date date) {
+
+        Calendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        return cal;
     }
 
     public static Date parseToDate(String date) {
