@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="givorost24x7-repository (1):war exploded">
-    <output-path>$PROJECT_DIR$/givorost24x7-repository2/target/givorost24x7-repository</output-path>
+    <output-path>$PROJECT_DIR$/givorost24x7-repository/target/givorost24x7-repository</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -65,7 +65,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/givorost24x7-repository2/target/givorost24x7-repository/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/givorost24x7-repository/target/givorost24x7-repository/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="givorost24x7-repository (1)/web/Web" />
     </root>

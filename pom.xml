@@ -15,7 +15,6 @@
     <module>givorost24x7-core</module>
     <module>givorost24x7-impl</module>
     <module>givorost24x7-repository</module>
-    <module>givorost24x7-repository2</module>
   </modules>
 
 </project>

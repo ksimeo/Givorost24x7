@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="givorost24x7-repository:war">
     <output-path>$PROJECT_DIR$/givorost24x7-repository/target</output-path>
-    <root id="archive" name="Givorost24x7_Repository_JavaEE_WebApp.war">
+    <root id="archive" name="givorost24x7-repository.war">
       <element id="artifact" artifact-name="givorost24x7-repository:war exploded" />
     </root>
   </artifact>

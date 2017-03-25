@@ -1,205 +1,124 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>givorost24x7</artifactId>
-		<groupId>com.ksimeo.givorost</groupId>
-		<version>1.0</version>
-	</parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>givorost24x7</artifactId>
+        <groupId>com.ksimeo.givorost</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ksimeo.givorost.repository</groupId>
+    <artifactId>givorost24x7-repository</artifactId>
+    <packaging>war</packaging>
+    <version>1.0</version>
+    <name>givorost24x7_Repository</name>
+    <url>http://maven.apache.org</url>
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ksimeo.givorost.repository</groupId>
-	<artifactId>givorost24x7-repository</artifactId>
-	<packaging>war</packaging>
-	<version>1.0</version>
-	<name>Givorost24x7_Repo</name>
-	<!--<url>http://maven.apache.org</url>-->
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
+        <spring.security.version>3.2.3.RELEASE</spring.security.version>
+        <jstl.version>1.2</jstl.version>
+        <jcl.slf4j.version>1.7.12</jcl.slf4j.version>
+        <logback.version>1.1.3</logback.version>
+        <servletapi.version>3.1.0</servletapi.version>
+        <jackson.version>2.8.6</jackson.version>
+    </properties>
 
-	<properties>
-		<jdk.version>1.8</jdk.version>
-		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.security.version>3.2.3.RELEASE</spring.security.version>
-		<jstl.version>1.2</jstl.version>
-		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
-		<logback.version>1.1.3</logback.version>
-		<servletapi.version>3.1.0</servletapi.version>
-		<jackson.version>2.8.6</jackson.version>
-	</properties>
-
-	<dependencies>
-		<!--S p r i n g  f r a m e w o r k-->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+    <dependencies>
+        <!--S p r i n g-->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.2.6.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>3.0.0.ga</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.3.0.ga</version>
-		</dependency>
-
-		<dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
+            <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--H i b e r n a t e-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>4.3.5.Final</version>
         </dependency>
-        <!--H i b e r n a t e  f r a m e w o r k-->
-        <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-commons-annotations</artifactId>-->
-            <!--<version>4.3.5.Final</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-commons-annotations</artifactId>
+            <version>3.0.0.ga</version>
+        </dependency>
         <!--<dependency>-->
             <!--<groupId>org.hibernate</groupId>-->
             <!--<artifactId>hibernate-annotations</artifactId>-->
-            <!--<version>4.3.5.Final</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>javax.transaction</groupId>-->
-                    <!--<artifactId>jta</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.hibernate</groupId>-->
-                    <!--<artifactId>hibernate-annotations</artifactId>-->
-
-                <!--</exclusion>-->
-            <!--</exclusions>-->
+            <!--<version>3.3.0.ga</version>-->
         <!--</dependency>-->
-        <!--DB-->
+        <!--D B-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>5.1.25</version>
         </dependency>
-		<!--J a v a E E-->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${servletapi.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<!--L o g g i n g-->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${jcl.slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-		<!--M a p p i n g-->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>com.fasterxml.jackson.core</groupId>-->
-			<!--<artifactId>jackson-core</artifactId>-->
-			<!--<version>${jackson.version}</version>-->
-		<!--</dependency>-->
-		<!--T e s t i n g-->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<!--O w n  d e p e n d e n c i e s-->
-		<dependency>
-			<groupId>com.ksimeo.givorost.core</groupId>
-			<artifactId>givorost24x7-core</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ksimeo.givorost.api</groupId>
-			<artifactId>givorost24x7-api</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ksimeo.givorost.impl</groupId>
-			<artifactId>givorost24x7-impl</artifactId>
-			<version>1.0</version>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<finalName>Givorost24x7_Repository_JavaEE_WebApp</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-context</artifactId>-->
+        <!--<version>${spring.version}</version>-->
+        <!--</dependency>-->
+        <!--T e s t s-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <!--O w n  d e p e n d e n c i e s-->
+        <dependency>
+            <groupId>com.ksimeo.givorost.core</groupId>
+            <artifactId>givorost24x7-core</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ksimeo.givorost.api</groupId>
+            <artifactId>givorost24x7-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ksimeo.givorost.impl</groupId>
+            <artifactId>givorost24x7-impl</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>givorost24x7-repository</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
